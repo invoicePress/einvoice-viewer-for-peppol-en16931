@@ -1,0 +1,121 @@
+/* spt-kit-h.tokens.css — nur der Token-Block von Kit H (v1.8, Token unverändert).
+   :root für normale Seiten, :host für Shadow-DOM-Komponenten.
+   Zusammen mit spt-kit.components.css ergibt sich spt-kit-h.css. */
+
+/* ============================================================
+   Tokens — Kit H  ·  Editorial Technical
+   Für specialPress- und invoicePress-Werkzeuge
+   Abgeleitet aus EN16931 Mapping Studio und
+   Validierungsbericht-Erklärer: kantig, Linien statt Schatten,
+   Navy auf Papiergrau, Mono für Kennungen und Rubriken.
+   Schriften: Space Grotesk, Inter, JetBrains Mono
+   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+   ============================================================ */
+:root,:host{
+  /* Schrift */
+  --font:        'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-title:  'Space Grotesk','Inter',sans-serif;
+  --mono:        'JetBrains Mono',ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --fs:          15px;
+  --fs-h1:       30px;
+  --fs-h2:       17px;
+  --fs-sm:       13.5px;
+  --fs-xs:       11px;
+  --fs-s:        13px;      /* 1.9: vorher fest in den Bausteinen */
+  --fs-s2:       12.5px;
+  --fs-mini:     12px;
+  --lh:          1.5;
+
+  /* Maße — kantig, keine Radien */
+  --radius:      0px;
+  --radius-lg:   0px;
+  --ctl-h:       34px;
+  --pad:         16px;
+  --pad-lg:      24px;
+  --row-pad:     8px;
+  --top-h:       54px;
+  --nav-w:       218px;
+  --rail-w:      68px;
+  --doc-w:       1080px;
+  --drop-max:    960px;     /* Breite der Datei-Ablage, siehe .drop */
+
+  /* Flächen und Linien */
+  --bg:          #eceef2;
+  --surface:     #ffffff;
+  --surface-2:   #f7f8fa;
+  --border:      #d5d8de;
+  --border-strong:#b8bdc7;
+  --field-border:#d5d8de;
+
+  /* Text */
+  --text:        #0b1220;
+  --muted:       #4a5468;
+  --faint:       #656d80;
+
+  /* Kopfzeile — hell, mit Linie statt Farbfläche */
+  --top-bg:      #ffffff;
+  --top-fg:      #0b1220;
+  --top-sub:     #6b7488;
+  --top-line:    #d5d8de;
+  --top-hover:   #f7f8fa;
+  --mark-bg:     #1e3a8a;
+  --top-accent:  #1e3a8a;   /* Akzent AUF der Kopfzeile — hier gleich --accent */
+
+  /* Akzent und Signale */
+  --accent:      #1e3a8a;
+  --accent-2:    #172554;
+  --accent-soft: #eef2ff;
+  --on-accent:   #ffffff;
+  --ok:          #067647;  --ok-soft:  #ecfdf3;
+  --warn:        #b54708;  --warn-soft:#fffaeb;
+  --err:         #b42318;  --err-soft: #fef3f2;
+  --info:        #175cd3;  --info-soft:#eff8ff;
+  --mark:        #fef08a;
+  /* kräftigere Stufe derselben Rolle — für Text auf der weichen Fläche */
+  --err-strong:  #7f1d1d;
+  --mark-strong: #facc15;
+  /* eigene Rolle: Streifung langer Listen, im Hellen nah an --surface-2,
+     im Dunkeln bewusst deutlicher */
+  --zebra:       #f2f4f8;
+
+  /* Charakter: was Kit H von Kit A unterscheidet */
+  --shadow:      none;
+  --shadow-lg:   none;
+  --badge-r:     0px;
+  --badge-bd:    currentColor;
+  --badge-tt:    uppercase;
+  --badge-ls:    .04em;
+  --btn-fg:      var(--text);
+  --btn-fw:      500;
+  --ph-ff:       var(--mono);
+  --ph-tt:       uppercase;
+  --ph-ls:       .08em;
+  --ph-fs:       11px;
+  --ph-bg:       var(--surface-2);
+  --ph-fw:       600;
+  --val-bd:      var(--border);
+  --val-bg:      var(--surface-2);
+  --val-pad:     1px 6px;
+  --sig-w:       3px;       /* Breite der Signalkante, siehe .edge-* */
+  --sel-bar:     inset var(--sig-w) 0 0 var(--accent);
+  --crumb-ff:    var(--mono);
+  --crumb-tt:    uppercase;
+  --crumb-ls:    .08em;
+  --eyebrow-d:   flex;      /* Rubrik-Zeile mit Strich */
+  --verdict-fg:  #ffffff;
+  --code-bg:     var(--surface-2);
+}
+
+/* ---- Dunkelmodus: <html data-theme="dark"> ---- */
+:root[data-theme="dark"],:host([data-theme="dark"]){
+  --bg:#0e1319; --surface:#151b23; --surface-2:#1b222b;
+  --border:#262f3a; --border-strong:#36414e; --field-border:#36414e;
+  --text:#e8ecf2; --muted:#9aa5b4; --faint:#89939f;
+  --top-bg:#111720; --top-fg:#e8ecf2; --top-sub:#8b95a4; --top-line:#262f3a;
+  --top-hover:rgba(255,255,255,.08); --mark-bg:#7c9cff; --top-accent:#7c9cff;
+  --accent:#7c9cff; --accent-2:#a3bbff; --accent-soft:#1a2340; --on-accent:#0e1319;
+  --ok:#43bd7f; --ok-soft:#10281d; --warn:#dda44a; --warn-soft:#2a2214;
+  --err:#ff7b72; --err-soft:#2f1a19; --info:#7c9cff; --info-soft:#1a2340;
+  --code-bg:#0a0f14; --verdict-fg:#0e1319;
+  --zebra:#1c232e; --err-strong:#ff9f97; --mark-strong:#ffd76a;
+}

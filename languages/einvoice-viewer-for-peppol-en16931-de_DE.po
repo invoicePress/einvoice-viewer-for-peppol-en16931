@@ -1,0 +1,1712 @@
+# Copyright (C) 2026 Ralf Fuhrmann
+# This file is distributed under the GPL-2.0-or-later.
+#
+# NOTE: the source strings live in TWO places - the plugin itself and the extracted core
+# package specialpress/einvoice-view. Re-extract from both, never from the plugin alone.
+#
+# The EN16931 business term NAMES are not in here on purpose: they are normative wordings
+# shipped as data in the core package's generated metadata map ( German / English / French ),
+# because a translator must not be able to reword a legal definition.
+msgid ""
+msgstr ""
+"Project-Id-Version: eInvoice Viewer for PEPPOL & EN16931 2.2.0\n"
+"Report-Msgid-Bugs-To: https://invoicepress.de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: einvoice-viewer-for-peppol-en16931\n"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:49
+msgid "%1$s needs the eInvoice Viewer %2$s or later."
+msgstr "%1$s braucht den eInvoice Viewer ab Fassung %2$s."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:372
+msgid "A token file ( .css ) as the tool kit ships it, at most 32 KB. Only its custom properties under :root and :host are kept. After saving, the kit is chosen for every eInvoice tool."
+msgstr "Eine Token-Datei ( .css ), wie sie das Tool Kit mitliefert, höchstens 32 KB. Übernommen werden nur ihre Custom Properties unter :root und :host. Nach dem Speichern ist das Kit für alle eInvoice-Werkzeuge gewählt."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:143
+msgid "Access and limits"
+msgstr "Zugang und Grenzen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:51 einvoice-model/php/view/Context.php:161 einvoice-model/php/view/ModelBuilder.php:903 einvoice-model/php/view/ModelBuilder.php:910
+msgid "Account holder"
+msgstr "Kontoinhaber"
+
+#: einvoice-model/php/view/Context.php:162 einvoice-model/php/view/ModelBuilder.php:1160
+msgid "Accounting reference"
+msgstr "Kontierungshinweis / Kostenstelle"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:324
+msgid "Add the %s shortcode to a page to let visitors upload and visualize an electronic invoice."
+msgstr "Fügen Sie den Shortcode %s in eine Seite ein, damit Besucher eine E-Rechnung hochladen und visualisieren können."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:146
+msgid "Add-ons available from role"
+msgstr "Erweiterungen verfügbar ab Rolle"
+
+#: einvoice-model/php/view/Context.php:163 einvoice-model/php/view/ModelBuilder.php:3126
+msgid "Additional conditions of sale/purchase"
+msgstr "Zusätzliche Verkaufs-/Einkaufsbedingungen"
+
+#: einvoice-model/php/view/Context.php:164 einvoice-model/php/view/ModelBuilder.php:3130
+msgid "Additional information"
+msgstr "Zusätzliche Angaben"
+
+#: einvoice-model/php/view/Context.php:165 einvoice-model/php/view/ModelBuilder.php:1763
+msgid "Additional supporting documents"
+msgstr "Rechnungsbegründende Unterlagen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:53
+msgid "Address"
+msgstr "Anschrift"
+
+#: einvoice-model/php/view/Context.php:166 einvoice-model/php/view/ModelBuilder.php:541 einvoice-model/php/view/ModelBuilder.php:733 einvoice-model/php/view/ModelBuilder.php:1970
+msgid "Address line 1"
+msgstr "Adresszeile 1"
+
+#: einvoice-model/php/view/Context.php:167 einvoice-model/php/view/ModelBuilder.php:542 einvoice-model/php/view/ModelBuilder.php:734 einvoice-model/php/view/ModelBuilder.php:1971
+msgid "Address line 2"
+msgstr "Adresszeile 2"
+
+#: einvoice-model/php/view/Context.php:168 einvoice-model/php/view/ModelBuilder.php:543 einvoice-model/php/view/ModelBuilder.php:735 einvoice-model/php/view/ModelBuilder.php:1972
+msgid "Address line 3"
+msgstr "Adresszeile 3"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:293
+msgid "Administrators only"
+msgstr "Nur Administratoren"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:55 einvoice-model/php/view/Context.php:169 einvoice-model/php/view/ModelBuilder.php:1393
+msgid "Allowance"
+msgstr "Abschlag"
+
+#: einvoice-model/php/view/Context.php:170 einvoice-model/php/view/ModelBuilder.php:1607
+msgid "Allowances"
+msgstr "Abschläge"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:57 einvoice-model/php/view/Context.php:171 einvoice-model/php/view/ModelBuilder.php:1319 einvoice-model/php/view/ModelBuilder.php:1461
+msgid "Allowances & charges"
+msgstr "Zu- und Abschläge"
+
+#: einvoice-model/php/view/Context.php:172
+msgid "Allowances on line level"
+msgstr "Nachlässe auf Ebene der Rechnungsposition"
+
+#: einvoice-model/php/view/Context.php:173 einvoice-model/php/view/ModelBuilder.php:1328 einvoice-model/php/view/ModelBuilder.php:1472
+msgid "Amount"
+msgstr "Betrag"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:59 einvoice-model/php/view/Context.php:174 einvoice-model/php/view/Template/QubaTemplate.php:142
+msgid "Amount due"
+msgstr "Zahlbetrag"
+
+#: einvoice-model/php/view/Context.php:175 einvoice-model/php/view/ModelBuilder.php:1629
+msgid "Amount due for payment"
+msgstr "Fälliger Zahlbetrag"
+
+#: einvoice-model/php/view/Context.php:176 einvoice-model/php/view/ModelBuilder.php:1759
+msgid "Attached document"
+msgstr "Anhangdokument"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:61 einvoice-model/php/view/Context.php:177 einvoice-model/php/view/ModelBuilder.php:1754
+msgid "Attachment description"
+msgstr "Beschreibung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:63 einvoice-model/php/view/Context.php:178 einvoice-model/php/view/ModelBuilder.php:1761
+msgid "Attachment file name"
+msgstr "Name des Anhangdokuments"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:65 einvoice-model/php/view/Context.php:179 einvoice-model/php/view/ModelBuilder.php:1760
+msgid "Attachment format"
+msgstr "Format des Anhangdokuments"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:67
+msgid "Attachments"
+msgstr "Anlagen"
+
+#: einvoice-model/php/view/Context.php:180 einvoice-model/php/view/ModelBuilder.php:1222
+msgid "Attribute name"
+msgstr "Bezeichnung des Attributs"
+
+#: einvoice-model/php/view/Context.php:181 einvoice-model/php/view/ModelBuilder.php:1223
+msgid "Attribute value"
+msgstr "Wert des Attributs"
+
+#: einvoice-model/php/view/Context.php:182 einvoice-model/php/view/ModelBuilder.php:3001
+msgid "Austria"
+msgstr "Österreich"
+
+#: einvoice-model/php/view/Context.php:183 einvoice-model/php/view/ModelBuilder.php:905 einvoice-model/php/view/ModelBuilder.php:912
+msgid "BIC"
+msgstr "BIC"
+
+#: einvoice-model/php/view/Context.php:184 einvoice-model/php/view/ModelBuilder.php:2864
+msgid "Bank card"
+msgstr "Bankkarte"
+
+#: einvoice-model/php/view/Context.php:185 einvoice-model/php/view/ModelBuilder.php:1326 einvoice-model/php/view/ModelBuilder.php:1470
+msgid "Base amount"
+msgstr "Grundbetrag"
+
+#: einvoice-model/php/view/Context.php:186 einvoice-model/php/view/ModelBuilder.php:3006
+msgid "Belgium"
+msgstr "Belgien"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:306
+msgid "Below the chosen role the viewer behaves as if the add-on were not installed: no button, no fields, no requests."
+msgstr "Unterhalb der gewählten Rolle verhält sich der Viewer, als wäre die Erweiterung nicht installiert: kein Knopf, keine Felder, keine Anfragen."
+
+#: einvoice-model/php/view/Context.php:187 einvoice-model/php/view/ModelBuilder.php:403 einvoice-model/php/view/ModelBuilder.php:1161
+msgid "Billing period"
+msgstr "Abrechnungszeitraum"
+
+#: einvoice-model/php/view/Context.php:188 einvoice-model/php/view/ModelBuilder.php:685
+msgid "Business process"
+msgstr "Prozesskennung"
+
+#: einvoice-model/php/view/Context.php:189 einvoice-model/php/view/ModelBuilder.php:680
+msgid "Buyer accounting reference"
+msgstr "Buchungsreferenz des Käufers"
+
+#: einvoice-model/php/view/Context.php:190 einvoice-model/php/view/ModelBuilder.php:593
+msgid "Buyer information"
+msgstr "Informationen zum Käufer"
+
+#: einvoice-model/php/view/Context.php:191 einvoice-model/php/view/ModelBuilder.php:417
+msgid "Buyer reference"
+msgstr "Referenz des Käufers"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:69
+msgid "Buyer tax representative"
+msgstr "Steuerbevollmächtigter des Käufers"
+
+#: einvoice-model/php/view/Context.php:192 einvoice-model/php/view/ModelBuilder.php:1206
+msgid "Buyer's item number"
+msgstr "Kunden-Material-Nr."
+
+#: einvoice-model/php/view/Context.php:193 einvoice-model/php/view/ModelBuilder.php:2968
+msgid "Canary Islands general indirect tax"
+msgstr "Allgemeine indirekte Steuer der Kanarischen Inseln (IGIC)"
+
+#: einvoice-model/php/view/Context.php:194 einvoice-model/php/view/ModelBuilder.php:973
+msgid "Card holder"
+msgstr "Karteninhaber"
+
+#: einvoice-model/php/view/Context.php:195 einvoice-model/php/view/ModelBuilder.php:975
+msgid "Card information"
+msgstr "Karteninformation"
+
+#: einvoice-model/php/view/Context.php:196 einvoice-model/php/view/ModelBuilder.php:972
+msgid "Card number (last digits)"
+msgstr "Kartennummer"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:71
+msgid "Cash discount / penalty terms"
+msgstr "Skonto und Verzugszinsen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:74
+msgid "Cash discount, term %d"
+msgstr "Skonto, Kondition %d"
+
+#: einvoice-model/php/view/Context.php:197 einvoice-model/php/view/ModelBuilder.php:1557
+msgid "Category"
+msgstr "Kategorie"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:76 einvoice-model/php/view/Context.php:198 einvoice-model/php/view/ModelBuilder.php:1393
+msgid "Charge"
+msgstr "Zuschlag"
+
+#: einvoice-model/php/view/Context.php:199 einvoice-model/php/view/ModelBuilder.php:1608
+msgid "Charges"
+msgstr "Zuschläge"
+
+#: einvoice-model/php/view/Context.php:200
+msgid "Charges on line level"
+msgstr "Zuschläge auf Ebene der Rechnungsposition"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:1007
+msgid "Check identifiers online"
+msgstr "Kennungen online prüfen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:686
+msgid "Checking identifiers …"
+msgstr "Die Kennungen werden geprüft …"
+
+#: einvoice-model/php/view/Context.php:201 einvoice-model/php/view/ModelBuilder.php:2861
+msgid "Cheque"
+msgstr "Scheck"
+
+#: einvoice-model/php/view/Context.php:202 einvoice-model/php/view/ModelBuilder.php:545 einvoice-model/php/view/ModelBuilder.php:737 einvoice-model/php/view/ModelBuilder.php:1974
+msgid "City"
+msgstr "Ort"
+
+#: einvoice-model/php/view/Context.php:203 einvoice-model/php/view/ModelBuilder.php:1210
+msgid "Classification scheme"
+msgstr "Kennung des Klassifizierungsschemas"
+
+#: einvoice-model/php/view/Context.php:204 einvoice-model/php/view/ModelBuilder.php:1211
+msgid "Classification scheme version"
+msgstr "Version des Klassifizierungsschemas"
+
+#: einvoice-model/php/view/Context.php:205 einvoice-model/php/view/ModelBuilder.php:2870
+msgid "Clearing between partners"
+msgstr "Verrechnung zwischen Partnern"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:78
+msgid "Close"
+msgstr "Schließen"
+
+#: einvoice-model/php/view/Context.php:206 einvoice-model/php/view/ModelBuilder.php:3064
+msgid "Codice Fiscale"
+msgstr "Codice Fiscale"
+
+#: einvoice-model/php/view/Context.php:207 einvoice-model/php/view/ModelBuilder.php:2811
+msgid "Commercial invoice"
+msgstr "Rechnung"
+
+#: einvoice-model/php/view/Context.php:208 einvoice-model/php/view/ModelBuilder.php:3172
+msgid "Commodity number"
+msgstr "Warennummer"
+
+#: einvoice-model/php/view/Context.php:209 einvoice-model/php/view/ModelBuilder.php:3056
+msgid "Company Code (Estonia)"
+msgstr "Company Code (Estonia)"
+
+#: einvoice-model/php/view/Context.php:210 einvoice-model/php/view/ModelBuilder.php:534
+msgid "Company name"
+msgstr "Firmenname"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:80 einvoice-model/php/view/Context.php:211 einvoice-model/php/view/ModelBuilder.php:583
+msgid "Contact"
+msgstr "Ansprechpartner"
+
+#: einvoice-model/php/view/Context.php:212 einvoice-model/php/view/ModelBuilder.php:581
+msgid "Contact details"
+msgstr "Kontaktdaten"
+
+#: einvoice-model/php/view/Context.php:213 einvoice-model/php/view/ModelBuilder.php:623
+msgid "Contract reference"
+msgstr "Vertragsreferenz"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:82
+msgid "Copy"
+msgstr "Kopie"
+
+#: einvoice-model/php/view/Context.php:214 einvoice-model/php/view/ModelBuilder.php:3054
+msgid "Corporate Number of The Social Security and Tax Number System"
+msgstr "Corporate Number of The Social Security and Tax Number System"
+
+#: einvoice-model/php/view/Context.php:215 einvoice-model/php/view/ModelBuilder.php:2813
+msgid "Corrected invoice"
+msgstr "Rechnungskorrektur"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:270
+msgid "Count guests by the X-Forwarded-For header. Only switch this on behind a reverse proxy or CDN; otherwise a visitor can choose his own counter."
+msgstr "Gäste nach dem Header X-Forwarded-For zählen. Nur hinter einem Reverse Proxy oder CDN einschalten; sonst kann sich ein Besucher seinen Zähler selbst aussuchen."
+
+#: einvoice-model/php/view/Context.php:216 einvoice-model/php/view/ModelBuilder.php:547 einvoice-model/php/view/ModelBuilder.php:739 einvoice-model/php/view/ModelBuilder.php:1976
+msgid "Country"
+msgstr "Land"
+
+#: einvoice-model/php/view/Context.php:217 einvoice-model/php/view/ModelBuilder.php:546 einvoice-model/php/view/ModelBuilder.php:738 einvoice-model/php/view/ModelBuilder.php:1975
+msgid "Country subdivision"
+msgstr "Bundesland"
+
+#: einvoice-model/php/view/Context.php:218 einvoice-model/php/view/ModelBuilder.php:2812
+msgid "Credit note"
+msgstr "Gutschrift"
+
+#: einvoice-model/php/view/Context.php:219 einvoice-model/php/view/ModelBuilder.php:915 einvoice-model/php/view/ModelBuilder.php:2862
+msgid "Credit transfer"
+msgstr "Überweisung"
+
+#: einvoice-model/php/view/Context.php:220 einvoice-model/php/view/ModelBuilder.php:943
+msgid "Creditor reference (SEPA)"
+msgstr "SEPA-Gläubiger-ID"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:84 einvoice-model/php/view/Context.php:221 einvoice-model/php/view/ModelBuilder.php:410 einvoice-model/php/view/Template/QubaTemplate.php:134
+msgid "Currency"
+msgstr "Währung"
+
+#: einvoice-model/php/view/Context.php:222 einvoice-model/php/view/ModelBuilder.php:3009
+msgid "Czechia"
+msgstr "Tschechien"
+
+#: einvoice-model/php/view/Context.php:223 einvoice-model/php/view/ModelBuilder.php:3053
+msgid "DIGSTORG"
+msgstr "DIGSTORG"
+
+#: einvoice-model/php/view/Context.php:224 einvoice-model/php/view/ModelBuilder.php:3051
+msgid "Danish Chamber of Commerce Scheme (EDIRA compliant)"
+msgstr "Danish Chamber of Commerce Scheme (EDIRA compliant)"
+
+#: einvoice-model/php/view/Context.php:225 einvoice-model/php/view/ModelBuilder.php:3048
+msgid "Data Universal Numbering System (D-U-N-S Number)"
+msgstr "Data Universal Numbering System (D-U-N-S Number)"
+
+#: einvoice-model/php/view/Context.php:226 einvoice-model/php/view/ModelBuilder.php:942
+msgid "Debited account (IBAN)"
+msgstr "IBAN des Lastschriftkontos"
+
+#: einvoice-model/php/view/Context.php:227 einvoice-model/php/view/ModelBuilder.php:725
+msgid "Deliver to"
+msgstr "Lieferung an"
+
+#: einvoice-model/php/view/Context.php:228 einvoice-model/php/view/ModelBuilder.php:731
+msgid "Deliver to postal address"
+msgstr "Postanschrift des Lieferorts"
+
+#: einvoice-model/php/view/Context.php:229 einvoice-model/php/view/ModelBuilder.php:743
+msgid "Delivery date"
+msgstr "Lieferdatum"
+
+#: einvoice-model/php/view/Context.php:230 einvoice-model/php/view/ModelBuilder.php:745
+msgid "Delivery information"
+msgstr "Lieferinformationen"
+
+#: einvoice-model/php/view/Context.php:231 einvoice-model/php/view/ModelBuilder.php:719
+msgid "Delivery location identifier"
+msgstr "Kennung des Lieferorts"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:86
+msgid "Delivery note date"
+msgstr "Datum des Lieferscheins"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:88
+msgid "Delivery note reference"
+msgstr "Lieferscheinnummer"
+
+#: einvoice-model/php/view/Context.php:232 einvoice-model/php/view/ModelBuilder.php:3010
+msgid "Denmark"
+msgstr "Dänemark"
+
+#: einvoice-model/php/view/Context.php:233 einvoice-model/php/view/ModelBuilder.php:587
+msgid "Department"
+msgstr "Abteilung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:116
+msgid "Design kit"
+msgstr "Design-Kit"
+
+#: einvoice-model/php/view/Context.php:234 einvoice-model/php/view/ModelBuilder.php:633
+msgid "Despatch advice reference"
+msgstr "Versandanzeige"
+
+#: einvoice-model/php/view/Context.php:235 einvoice-model/php/view/ModelBuilder.php:945 einvoice-model/php/view/ModelBuilder.php:2865
+msgid "Direct debit"
+msgstr "Lastschrift"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:353
+msgid "Display the EN16931 Business Term ( BT ) numbers next to the fields. Visitors can still toggle this in the viewer."
+msgstr "Zeigt die EN16931-Business-Term-Nummern ( BT ) neben den Feldern an. Besucher können dies im Viewer weiterhin umschalten."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:90
+msgid "Document flags"
+msgstr "Kennzeichen des Dokuments"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:1037
+msgid "Download as PDF"
+msgstr "Als PDF herunterladen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:92
+msgid "Drag an e-invoice here or click to choose a file"
+msgstr "E-Rechnung hierher ziehen oder klicken, um eine Datei zu wählen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:45 einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:46 einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:104 einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:414
+msgid "E-Invoice Viewer"
+msgstr "E-Rechnungs-Viewer"
+
+#: einvoice-model/php/view/Context.php:236 einvoice-model/php/view/ModelBuilder.php:589
+msgid "E-mail"
+msgstr "E-Mail-Adresse"
+
+#: einvoice-model/php/view/Context.php:237 einvoice-model/php/view/ModelBuilder.php:3049
+msgid "EAN Location Code"
+msgstr "EAN Location Code"
+
+#: einvoice-model/php/view/Context.php:238 einvoice-model/php/view/ModelBuilder.php:3060
+msgid "ERSTORG"
+msgstr "ERSTORG"
+
+#: einvoice-model/php/view/Context.php:239 einvoice-model/php/view/ModelBuilder.php:590
+msgid "Electronic address"
+msgstr "Elektronische Adresse"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:94 einvoice-model/php/view/Context.php:240 einvoice-model/php/view/ModelBuilder.php:3092
+msgid "Electronic mail"
+msgstr "E-Mail"
+
+#: einvoice-model/php/view/Context.php:241 einvoice-model/php/view/ModelBuilder.php:411 einvoice-model/php/view/ModelBuilder.php:1163
+msgid "End date"
+msgstr "Ende"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:288
+msgid "Everyone, also guests"
+msgstr "Alle, auch Gäste"
+
+#: einvoice-model/php/view/Context.php:242 einvoice-model/php/view/ModelBuilder.php:2963
+msgid "Exempt from tax"
+msgstr "Steuerbefreit"
+
+#: einvoice-model/php/view/Context.php:243 einvoice-model/php/view/ModelBuilder.php:1561
+msgid "Exemption reason"
+msgstr "Befreiungsgrund"
+
+#: einvoice-model/php/view/Context.php:244 einvoice-model/php/view/ModelBuilder.php:1562
+msgid "Exemption reason code"
+msgstr "Code des Befreiungsgrundes"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:1006
+msgid "Export to Excel"
+msgstr "Nach Excel exportieren"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:209
+msgid "Exporter ( Excel )"
+msgstr "Exporter ( Excel )"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:205
+msgid "Extended Profiles"
+msgstr "Extended Profiles"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:1008
+msgid "Field Browser"
+msgstr "Feldbrowser"
+
+#: einvoice-model/php/view/Context.php:245 einvoice-model/php/view/ModelBuilder.php:2818
+msgid "Final construction invoice"
+msgstr "Schlussrechnung Bau"
+
+#: einvoice-model/php/view/Context.php:246 einvoice-model/php/view/ModelBuilder.php:3066
+msgid "Finnish Organization Identifier"
+msgstr "Finnish Organization Identifier"
+
+#: einvoice-model/php/view/Context.php:247 einvoice-model/php/view/ModelBuilder.php:3067
+msgid "Finnish Organization Value Add Tax Identifier"
+msgstr "Finnish Organization Value Add Tax Identifier"
+
+#: einvoice-model/php/view/Context.php:248 einvoice-model/php/view/ModelBuilder.php:3003
+msgid "France"
+msgstr "Frankreich"
+
+#: einvoice-model/php/view/Context.php:249 einvoice-model/php/view/ModelBuilder.php:2966
+msgid "Free export item, tax not charged"
+msgstr "Ausfuhrlieferung, nicht steuerbar"
+
+#: einvoice-model/php/view/Context.php:250 einvoice-model/php/view/ModelBuilder.php:1156
+msgid "Free text"
+msgstr "Freitext"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:291
+msgid "From author"
+msgstr "Ab Autor"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:290
+msgid "From contributor"
+msgstr "Ab Mitarbeiter"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:292
+msgid "From editor"
+msgstr "Ab Redakteur"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:289
+msgid "From subscriber"
+msgstr "Ab Abonnent"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:96
+msgid "Further agreement data"
+msgstr "Weitere Vereinbarungsdaten"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:98
+msgid "Further delivery data"
+msgstr "Weitere Lieferdaten"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:100
+msgid "Further fields"
+msgstr "Weitere Felder"
+
+#: einvoice-model/php/view/Context.php:251 einvoice-model/php/view/ModelBuilder.php:577
+msgid "Further legal information"
+msgstr "Weitere rechtliche Informationen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:102
+msgid "Further references"
+msgstr "Weitere Referenzen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:104
+msgid "Further settlement data"
+msgstr "Weitere Abrechnungsdaten"
+
+#: einvoice-model/php/view/Context.php:252 einvoice-model/php/view/ModelBuilder.php:3050
+msgid "GTIN - Global Trade Item Number"
+msgstr "GTIN - Global Trade Item Number"
+
+#: einvoice-model/php/view/Context.php:253 einvoice-model/php/view/ModelBuilder.php:3125
+msgid "General information"
+msgstr "Allgemeine Angaben"
+
+#: einvoice-model/php/view/Context.php:254 einvoice-model/php/view/ModelBuilder.php:3000
+msgid "Germany"
+msgstr "Deutschland"
+
+#: einvoice-model/php/view/Context.php:262 einvoice-model/php/view/ModelBuilder.php:564 einvoice-model/php/view/ModelBuilder.php:722 einvoice-model/php/view/ModelBuilder.php:1925
+msgid "Global identifier"
+msgstr "Globale Kennung"
+
+#: einvoice-model/php/view/Context.php:263 einvoice-model/php/view/ModelBuilder.php:3129
+msgid "Government information"
+msgstr "Behördliche Angaben"
+
+#: einvoice-model/php/view/Context.php:264 einvoice-model/php/view/ModelBuilder.php:1188
+msgid "Gross price base quantity"
+msgstr "Anzahl der Einheit (Listenpreis)"
+
+#: einvoice-model/php/view/Context.php:265 einvoice-model/php/view/ModelBuilder.php:1187
+msgid "Gross unit price"
+msgstr "Listenpreis (brutto)"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:255
+msgid "Guest ( not logged in )"
+msgstr "Gast ( nicht angemeldet )"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:673
+msgid "Hide validation report"
+msgstr "Prüfbericht ausblenden"
+
+#: einvoice-model/php/view/Context.php:272 einvoice-model/php/view/ModelBuilder.php:904 einvoice-model/php/view/ModelBuilder.php:911
+msgid "IBAN"
+msgstr "IBAN"
+
+#: einvoice-model/php/view/Context.php:273 einvoice-model/php/view/ModelBuilder.php:3059
+msgid "Icelandic identifier - Íslensk kennitala"
+msgstr "Icelandic identifier - Íslensk kennitala"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:106 einvoice-model/php/view/Context.php:274 einvoice-model/php/view/ModelBuilder.php:548 einvoice-model/php/view/ModelBuilder.php:1742
+msgid "Identifier"
+msgstr "Kennung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:207
+msgid "Identifier Check"
+msgstr "Identifier Check"
+
+#: einvoice-model/php/view/Context.php:275 einvoice-model/php/view/ModelBuilder.php:2860
+msgid "In cash"
+msgstr "Barzahlung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:208
+msgid "Inbound Check"
+msgstr "Eingangsprüfung"
+
+#: einvoice-model/php/view/Context.php:276 einvoice-model/php/view/ModelBuilder.php:2859
+msgid "Instrument not defined"
+msgstr "Zahlungsinstrument nicht definiert"
+
+#: einvoice-model/php/view/Context.php:277 einvoice-model/php/view/ModelBuilder.php:3131
+msgid "Introduction"
+msgstr "Einleitung"
+
+#: einvoice-model/php/view/Context.php:278 einvoice-model/php/view/ModelBuilder.php:423
+msgid "Invoice data"
+msgstr "Rechnungsdaten"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:108 einvoice-model/php/view/Context.php:279 einvoice-model/php/view/ModelBuilder.php:399 einvoice-model/php/view/Template/QubaTemplate.php:133
+msgid "Invoice date"
+msgstr "Rechnungsdatum"
+
+#: einvoice-model/php/view/Context.php:280 einvoice-model/php/view/ModelBuilder.php:2815
+msgid "Invoice information for accounting purposes"
+msgstr "Rechnungsangaben für Buchhaltungszwecke"
+
+#: einvoice-model/php/view/Context.php:281 einvoice-model/php/view/ModelBuilder.php:1664
+msgid "Invoice note"
+msgstr "Freitext zur Rechnung"
+
+#: einvoice-model/php/view/Context.php:282 einvoice-model/php/view/ModelBuilder.php:397
+msgid "Invoice number"
+msgstr "Rechnungsnummer"
+
+#: einvoice-model/php/view/Context.php:283 einvoice-model/php/view/ModelBuilder.php:398
+msgid "Invoice type"
+msgstr "Rechnungstyp"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:110
+msgid "Invoicee"
+msgstr "Rechnungsempfänger"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:112
+msgid "Invoicer"
+msgstr "Rechnungssteller"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:257
+msgid "Invoices per day"
+msgstr "Rechnungen je Tag"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:144
+msgid "Invoices per day and role"
+msgstr "Rechnungen je Tag und Rolle"
+
+#: einvoice-model/php/view/Context.php:284 einvoice-model/php/view/ModelBuilder.php:3004
+msgid "Italy"
+msgstr "Italien"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:114 einvoice-model/php/view/Context.php:285 einvoice-model/php/view/ModelBuilder.php:1228
+msgid "Item"
+msgstr "Position"
+
+#: einvoice-model/php/view/Context.php:286 einvoice-model/php/view/ModelBuilder.php:1207
+msgid "Item EAN (GTIN)"
+msgstr "Artikelkennung (EAN)"
+
+#: einvoice-model/php/view/Context.php:287 einvoice-model/php/view/ModelBuilder.php:1216
+msgid "Item attributes"
+msgstr "Eigenschaften des Artikels"
+
+#: einvoice-model/php/view/Context.php:288 einvoice-model/php/view/ModelBuilder.php:1209
+msgid "Item classification"
+msgstr "Code der Artikelklassifizierung"
+
+#: einvoice-model/php/view/Context.php:289 einvoice-model/php/view/ModelBuilder.php:1212
+msgid "Item country of origin"
+msgstr "Code des Herkunftslandes"
+
+#: einvoice-model/php/view/Context.php:290 einvoice-model/php/view/ModelBuilder.php:1204
+msgid "Item description"
+msgstr "Beschreibung"
+
+#: einvoice-model/php/view/Context.php:291 einvoice-model/php/view/ModelBuilder.php:1236
+msgid "Item information"
+msgstr "Artikelinformationen"
+
+#: einvoice-model/php/view/Context.php:292 einvoice-model/php/view/ModelBuilder.php:1203
+msgid "Item name"
+msgstr "Bezeichnung"
+
+#: einvoice-model/php/view/Context.php:293 einvoice-model/php/view/ModelBuilder.php:1186
+msgid "Item price discount"
+msgstr "Rabatt (netto)"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:116
+msgid "Language"
+msgstr "Sprache"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:1029
+msgid "Layout"
+msgstr "Layout"
+
+#: einvoice-model/php/view/Context.php:294 einvoice-model/php/view/ModelBuilder.php:3061
+msgid "Legal Entity Identifier (LEI)"
+msgstr "Legal Entity Identifier (LEI)"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:118
+msgid "Legal organisation"
+msgstr "Rechtliche Registrierung"
+
+#: einvoice-model/php/view/Context.php:295 einvoice-model/php/view/ModelBuilder.php:3062
+msgid "Leitweg-ID"
+msgstr "Leitweg-ID"
+
+#: einvoice-model/php/view/Context.php:296 einvoice-model/php/view/ModelBuilder.php:1192
+msgid "Line VAT information"
+msgstr "Umsatzsteuerinformationen zur Position"
+
+#: einvoice-model/php/view/Context.php:297 einvoice-model/php/view/ModelBuilder.php:1155
+msgid "Line identifier"
+msgstr "Positionsnummer"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:120
+msgid "Load from file"
+msgstr "Aus Datei laden"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:122
+msgid "Loading the preview …"
+msgstr "Die Vorschau wird geladen …"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:124
+msgid "Logistics service charge"
+msgstr "Logistikkosten"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:126
+msgid "Logistics service charge amount"
+msgstr "Betrag der Logistikkosten"
+
+#: einvoice-model/php/view/Context.php:298 einvoice-model/php/view/ModelBuilder.php:3007
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+#: einvoice-model/php/view/Context.php:299 einvoice-model/php/view/ModelBuilder.php:941
+msgid "Mandate reference"
+msgstr "Mandatsreferenz"
+
+#: einvoice-viewer-for-peppol-en16931/einvoice-viewer-for-peppol-en16931.php:156
+msgid "Manual"
+msgstr "Handbuch"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:106
+msgid "Maximum file size ( MB )"
+msgstr "Maximale Dateigröße ( MB )"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:129 einvoice-model/php/view/Context.php:301
+msgid "Missing, although EN 16931 requires this field here (%s)."
+msgstr "Fehlt, obwohl die EN 16931 dieses Feld hier verlangt (%s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:132 einvoice-model/php/view/Context.php:303
+msgid "Missing: EN 16931 requires a reason or a reason code here (%s)."
+msgstr "Fehlt: Die EN 16931 verlangt hier einen Grund oder einen Grundcode (%s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:135 einvoice-model/php/view/Context.php:305
+msgid "Missing: with VAT category %1$s, EN 16931 requires the buyer VAT identifier (%2$s)."
+msgstr "Fehlt: Bei der Umsatzsteuerkategorie %1$s verlangt die EN 16931 die USt-IdNr. des Käufers (%2$s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:138 einvoice-model/php/view/Context.php:307
+msgid "Missing: with VAT category %1$s, EN 16931 requires the buyer VAT identifier or the buyer legal registration identifier (%2$s)."
+msgstr "Fehlt: Bei der Umsatzsteuerkategorie %1$s verlangt die EN 16931 die USt-IdNr. des Käufers oder seine Registernummer (%2$s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:141 einvoice-model/php/view/Context.php:309
+msgid "Missing: with VAT category %1$s, EN 16931 requires the seller VAT identifier or the tax representative VAT identifier (%2$s)."
+msgstr "Fehlt: Bei der Umsatzsteuerkategorie %1$s verlangt die EN 16931 die USt-IdNr. des Verkäufers oder die USt-IdNr. seines Steuervertreters (%2$s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:144 einvoice-model/php/view/Context.php:311
+msgid "Missing: with VAT category %1$s, EN 16931 requires the seller VAT identifier, the seller tax registration identifier or the tax representative VAT identifier (%2$s)."
+msgstr "Fehlt: Bei der Umsatzsteuerkategorie %1$s verlangt die EN 16931 die USt-IdNr. des Verkäufers, seine Steuernummer oder die USt-IdNr. seines Steuervertreters (%2$s)."
+
+#: einvoice-model/php/view/Context.php:312 einvoice-model/php/view/ModelBuilder.php:2871
+msgid "Mutually defined"
+msgstr "Gegenseitig vereinbart"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:146 einvoice-model/php/view/Context.php:313 einvoice-model/php/view/ModelBuilder.php:534
+msgid "Name"
+msgstr "Name"
+
+#: einvoice-model/php/view/Context.php:314 einvoice-model/php/view/ModelBuilder.php:1185
+msgid "Net line amount"
+msgstr "Gesamtpreis (netto)"
+
+#: einvoice-model/php/view/Context.php:315 einvoice-model/php/view/ModelBuilder.php:1172
+msgid "Net unit price"
+msgstr "Preis pro Einheit (netto)"
+
+#: einvoice-model/php/view/Context.php:316 einvoice-model/php/view/ModelBuilder.php:3005
+msgid "Netherlands"
+msgstr "Niederlande"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:282
+msgid "No add-on of the viewer is active."
+msgstr "Keine Erweiterung des Viewers ist aktiv."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:688
+msgid "No checkable identifiers were found on this invoice."
+msgstr "Auf dieser Rechnung wurden keine prüfbaren Kennungen gefunden."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:148 einvoice-model/php/view/Context.php:317 einvoice-model/php/view/ModelBuilder.php:251
+msgid "No liability is assumed for the accuracy of the data."
+msgstr "Wir übernehmen keine Haftung für die Richtigkeit der Daten."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:691
+msgid "None of the identifiers on this invoice can be checked online."
+msgstr "Keine Kennung dieser Rechnung lässt sich online prüfen."
+
+#: einvoice-model/php/view/Context.php:318 einvoice-model/php/view/ModelBuilder.php:1662 einvoice-model/php/view/ModelBuilder.php:3132
+msgid "Note"
+msgstr "Bemerkung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:150 einvoice-model/php/view/Context.php:271
+msgid "Note: this is not a full validation. The viewer only checks mandatory fields, the VAT category rules, the order of the dates and whether the totals add up. A validator checks all rules."
+msgstr "Hinweis: Das ist keine vollständige Prüfung. Der Viewer prüft nur die Pflichtfelder, die Regeln der Umsatzsteuer-Kategorien, die Reihenfolge der Daten und ob die Summen aufgehen. Alle Regeln prüft ein Validator."
+
+#: einvoice-model/php/view/Context.php:319 einvoice-model/php/view/ModelBuilder.php:3063
+msgid "Numéro d'entreprise / ondernemingsnummer / Unternehmensnummer"
+msgstr "Numéro d'entreprise / ondernemingsnummer / Unternehmensnummer"
+
+#: einvoice-model/php/view/Context.php:320 einvoice-model/php/view/ModelBuilder.php:668 einvoice-model/php/view/ModelBuilder.php:1157
+msgid "Object identifier"
+msgstr "Objektkennung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:690
+msgid "Online check: %1$d confirmed, %2$d not confirmed. Not confirmed identifiers are marked at their fields."
+msgstr "Online-Prüfung: %1$d bestätigt, %2$d nicht bestätigt. Nicht bestätigte Kennungen sind an ihren Feldern markiert."
+
+#: einvoice-model/php/view/Context.php:321 einvoice-model/php/view/ModelBuilder.php:2869
+msgid "Online payment service"
+msgstr "Online-Zahlungsdienst"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:152
+msgid "Only filled BT-X fields"
+msgstr "Nur gefüllte BT-X-Felder"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:154
+msgid "Only filled fields"
+msgstr "Nur gefüllte Felder"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:157
+msgid "Only the first %1$d of %2$d pages are shown. Save the file to see all of them."
+msgstr "Gezeigt werden nur die ersten %1$d von %2$d Seiten. Um alle zu sehen, speichern Sie die Datei."
+
+#: einvoice-model/php/view/Context.php:322 einvoice-model/php/view/ModelBuilder.php:688
+msgid "Order & contract data"
+msgstr "Bestell- und Vertragsdaten"
+
+#: einvoice-model/php/view/Context.php:323 einvoice-model/php/view/ModelBuilder.php:3173
+msgid "Order document identifier, buyer assigned"
+msgstr "Bestellreferenz, vom Käufer zugewiesen"
+
+#: einvoice-model/php/view/Context.php:324 einvoice-model/php/view/ModelBuilder.php:1159
+msgid "Order line reference"
+msgstr "Nummer der Auftragsposition"
+
+#: einvoice-model/php/view/Context.php:325 einvoice-model/php/view/ModelBuilder.php:3174
+msgid "Order number (vendor)"
+msgstr "Bestellnummer (Verkäufer)"
+
+#: einvoice-model/php/view/Context.php:326 einvoice-model/php/view/ModelBuilder.php:3057
+msgid "Organisasjonsnummer"
+msgstr "Organisasjonsnummer"
+
+#: einvoice-model/php/view/Context.php:327 einvoice-model/php/view/ModelBuilder.php:3055
+msgid "Organisatie Identificatie Nummer (OIN)"
+msgstr "Organisatie Identificatie Nummer (OIN)"
+
+#: einvoice-model/php/view/Context.php:328 einvoice-model/php/view/ModelBuilder.php:2816
+msgid "Partial construction invoice"
+msgstr "Bauabschlagsrechnung (Teilrechnung Bau)"
+
+#: einvoice-model/php/view/Context.php:329 einvoice-model/php/view/ModelBuilder.php:2817
+msgid "Partial final construction invoice"
+msgstr "Teilschlussrechnung Bau"
+
+#: einvoice-model/php/view/Context.php:330 einvoice-model/php/view/ModelBuilder.php:2810
+msgid "Partial invoice"
+msgstr "Teilrechnung"
+
+#: einvoice-model/php/view/Context.php:331 einvoice-model/php/view/ModelBuilder.php:3065
+msgid "Partita IVA"
+msgstr "Partita IVA"
+
+#: einvoice-model/php/view/Context.php:332 einvoice-model/php/view/ModelBuilder.php:1930
+msgid "Payee"
+msgstr "Zahlungsempfänger"
+
+#: einvoice-model/php/view/Context.php:333 einvoice-model/php/view/ModelBuilder.php:1922
+msgid "Payee identifier"
+msgstr "Kennung des Zahlungsempfängers"
+
+#: einvoice-model/php/view/Context.php:334 einvoice-model/php/view/ModelBuilder.php:1928
+msgid "Payee legal registration identifier"
+msgstr "Registriernummer des Zahlungsempfängers"
+
+#: einvoice-model/php/view/Context.php:335 einvoice-model/php/view/ModelBuilder.php:1921
+msgid "Payee name"
+msgstr "Name des Zahlungsempfängers"
+
+#: einvoice-model/php/view/Context.php:336 einvoice-model/php/view/ModelBuilder.php:879
+msgid "Payment data"
+msgstr "Zahlungsdaten"
+
+#: einvoice-model/php/view/Context.php:337 einvoice-model/php/view/ModelBuilder.php:875
+msgid "Payment due date"
+msgstr "Fälligkeitsdatum"
+
+#: einvoice-model/php/view/Context.php:338 einvoice-model/php/view/ModelBuilder.php:3133
+msgid "Payment information"
+msgstr "Zahlungsangaben"
+
+#: einvoice-model/php/view/Context.php:339 einvoice-model/php/view/ModelBuilder.php:871
+msgid "Payment method"
+msgstr "Zahlungsart"
+
+#: einvoice-model/php/view/Context.php:340 einvoice-model/php/view/ModelBuilder.php:872
+msgid "Payment method text"
+msgstr "Text zur Zahlungsart"
+
+#: einvoice-model/php/view/Context.php:341 einvoice-model/php/view/ModelBuilder.php:3124
+msgid "Payment term"
+msgstr "Zahlungsbedingung"
+
+#: einvoice-model/php/view/Context.php:342 einvoice-model/php/view/ModelBuilder.php:877
+msgid "Payment terms"
+msgstr "Zahlungsbedingungen"
+
+#: einvoice-model/php/view/Context.php:343 einvoice-model/php/view/ModelBuilder.php:2863
+msgid "Payment to bank account"
+msgstr "Zahlung auf ein Bankkonto"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:160
+msgid "Penalty, term %d"
+msgstr "Verzugszinsen, Kondition %d"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:258
+msgid "Per calendar day. Empty = unlimited, 0 = no access. Logged-in users are counted by user, guests by IP address. A user with several roles gets the most generous value. The invoice is still read in the browser; for the count the viewer only asks the server before each invoice, without sending it."
+msgstr "Je Kalendertag. Leer = unbegrenzt, 0 = kein Zugang. Angemeldete Benutzer werden je Benutzer gezählt, Gäste je IP-Adresse. Wer mehrere Rollen hat, bekommt den großzügigsten Wert. Die Rechnung wird weiter im Browser gelesen; für die Zählung fragt der Viewer vor jeder Rechnung nur kurz beim Server nach, ohne sie zu senden."
+
+#: einvoice-model/php/view/Context.php:344 einvoice-model/php/view/ModelBuilder.php:1327 einvoice-model/php/view/ModelBuilder.php:1471
+msgid "Percentage"
+msgstr "Prozentsatz"
+
+#: einvoice-model/php/view/Context.php:345 einvoice-model/php/view/ModelBuilder.php:588
+msgid "Phone"
+msgstr "Telefon"
+
+#: einvoice-model/php/view/Context.php:346 einvoice-model/php/view/ModelBuilder.php:3008
+msgid "Poland"
+msgstr "Polen"
+
+#: einvoice-model/php/view/Context.php:347 einvoice-model/php/view/ModelBuilder.php:1234
+msgid "Position"
+msgstr "Position"
+
+#: einvoice-model/php/view/Context.php:348 einvoice-model/php/view/ModelBuilder.php:539
+msgid "Postal address"
+msgstr "Postanschrift"
+
+#: einvoice-model/php/view/Context.php:349 einvoice-model/php/view/ModelBuilder.php:544 einvoice-model/php/view/ModelBuilder.php:736 einvoice-model/php/view/ModelBuilder.php:1973
+msgid "Postal code"
+msgstr "PLZ"
+
+#: einvoice-model/php/view/Context.php:350 einvoice-model/php/view/ModelBuilder.php:657
+msgid "Preceding invoice date"
+msgstr "Datum der vorausgegangenen Rechnung"
+
+#: einvoice-model/php/view/Context.php:351 einvoice-model/php/view/ModelBuilder.php:656
+msgid "Preceding invoice number"
+msgstr "Nummer der vorausgegangenen Rechnung"
+
+#: einvoice-model/php/view/Context.php:352 einvoice-model/php/view/ModelBuilder.php:655
+msgid "Preceding invoice reference"
+msgstr "Vorausgegangene Rechnung"
+
+#: einvoice-model/php/view/Context.php:353 einvoice-model/php/view/ModelBuilder.php:1627
+msgid "Prepaid amount"
+msgstr "Bereits gezahlter Betrag"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:676
+msgid "Preparing the Excel file …"
+msgstr "Die Excel-Datei wird vorbereitet …"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:683
+msgid "Preparing the PDF …"
+msgstr "Das PDF wird vorbereitet …"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:679
+msgid "Preparing the printable view …"
+msgstr "Die Druckansicht wird vorbereitet …"
+
+#: einvoice-model/php/view/Context.php:354 einvoice-model/php/view/ModelBuilder.php:1189
+msgid "Price base quantity"
+msgstr "Anzahl der Einheit"
+
+#: einvoice-model/php/view/Context.php:355 einvoice-model/php/view/ModelBuilder.php:1190
+msgid "Price base unit"
+msgstr "Code der Maßeinheit"
+
+#: einvoice-model/php/view/Context.php:356 einvoice-model/php/view/ModelBuilder.php:3127
+msgid "Price conditions"
+msgstr "Preiskonditionen"
+
+#: einvoice-model/php/view/Context.php:357 einvoice-model/php/view/ModelBuilder.php:1235
+msgid "Price details"
+msgstr "Preiseinzelheiten"
+
+#: einvoice-model/php/view/Context.php:358 einvoice-model/php/view/ModelBuilder.php:683
+msgid "Process control"
+msgstr "Prozesssteuerung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:162
+msgid "Product end user"
+msgstr "Endverbraucher des Produkts"
+
+#: einvoice-model/php/view/Context.php:359 einvoice-model/php/view/ModelBuilder.php:421
+msgid "Project reference"
+msgstr "Projektnummer"
+
+#: einvoice-model/php/view/Context.php:360 einvoice-model/php/view/ModelBuilder.php:615
+msgid "Purchase order reference"
+msgstr "Bestellreferenz"
+
+#: einvoice-model/php/view/Context.php:361 einvoice-model/php/view/Template/QubaTemplate.php:45
+msgid "QUBA ( rectangular )"
+msgstr "QUBA ( eckig )"
+
+#: einvoice-model/php/view/Context.php:362 einvoice-model/php/view/ModelBuilder.php:1170
+msgid "Quantity"
+msgstr "Menge"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:164
+msgid "Quotation date"
+msgstr "Angebotsdatum"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:166
+msgid "Quotation reference"
+msgstr "Angebotsnummer"
+
+#: einvoice-model/php/view/Context.php:363 einvoice-model/php/view/ModelBuilder.php:1558
+msgid "Rate"
+msgstr "Satz"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:168
+msgid "Reading the invoice …"
+msgstr "Rechnung wird gelesen …"
+
+#: einvoice-model/php/view/Context.php:364 einvoice-model/php/view/ModelBuilder.php:1324 einvoice-model/php/view/ModelBuilder.php:1466
+msgid "Reason"
+msgstr "Grund"
+
+#: einvoice-model/php/view/Context.php:365 einvoice-model/php/view/ModelBuilder.php:1325 einvoice-model/php/view/ModelBuilder.php:1467
+msgid "Reason code"
+msgstr "Code des Grundes"
+
+#: einvoice-model/php/view/Context.php:366 einvoice-model/php/view/ModelBuilder.php:637
+msgid "Receiving advice reference"
+msgstr "Empfangsbestätigung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:170 einvoice-model/php/view/Context.php:367 einvoice-model/php/view/ModelBuilder.php:1755
+msgid "Reference (URL)"
+msgstr "Verweis (URL)"
+
+#: einvoice-model/php/view/Context.php:368 einvoice-model/php/view/ModelBuilder.php:567
+msgid "Registration number"
+msgstr "Register-/Registriernummer"
+
+#: einvoice-model/php/view/Context.php:369 einvoice-model/php/view/ModelBuilder.php:3134
+msgid "Regulatory information"
+msgstr "Regulatorische Angaben"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:172 einvoice-model/php/view/Context.php:370 einvoice-model/php/view/ModelBuilder.php:1753
+msgid "Related document"
+msgstr "Zugehöriges Dokument"
+
+#: einvoice-model/php/view/Context.php:371 einvoice-model/php/view/ModelBuilder.php:3171
+msgid "Related document number"
+msgstr "Nummer des zugehörigen Dokuments"
+
+#: einvoice-model/php/view/Context.php:372 einvoice-model/php/view/ModelBuilder.php:876
+msgid "Remittance information"
+msgstr "Verwendungszweck"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:174
+msgid "Replace"
+msgstr "Ersetzen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:176
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:256
+msgid "Role"
+msgstr "Rolle"
+
+#: einvoice-model/php/view/Context.php:373 einvoice-model/php/view/ModelBuilder.php:1626
+msgid "Rounding amount"
+msgstr "Rundungsbetrag"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:1009
+msgid "Rule Browser"
+msgstr "Regelbrowser"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:187 einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:670
+msgid "Running the KoSIT validator …"
+msgstr "Der KoSIT-Validator läuft …"
+
+#: einvoice-model/php/view/Context.php:374 einvoice-model/php/view/ModelBuilder.php:2867
+msgid "SEPA credit transfer"
+msgstr "SEPA-Überweisung"
+
+#: einvoice-model/php/view/Context.php:375 einvoice-model/php/view/ModelBuilder.php:2868
+msgid "SEPA direct debit"
+msgstr "SEPA-Lastschrift"
+
+#: einvoice-model/php/view/Context.php:376 einvoice-model/php/view/ModelBuilder.php:619
+msgid "Sales order reference"
+msgstr "Auftragsnummer"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:178
+msgid "Save"
+msgstr "Speichern"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:180
+msgid "Save as file"
+msgstr "Als Datei speichern"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:182
+msgid "Saved."
+msgstr "Gespeichert."
+
+#: einvoice-model/php/view/Context.php:377 einvoice-model/php/view/ModelBuilder.php:591
+msgid "Scheme of the electronic address"
+msgstr "Schema der elektronischen Adresse"
+
+#: einvoice-model/php/view/Context.php:378 einvoice-model/php/view/ModelBuilder.php:566 einvoice-model/php/view/ModelBuilder.php:723 einvoice-model/php/view/ModelBuilder.php:1926
+msgid "Scheme of the identifier"
+msgstr "Schema der Kennung"
+
+#: einvoice-model/php/view/Context.php:379 einvoice-model/php/view/ModelBuilder.php:1208
+msgid "Scheme of the item identifier"
+msgstr "Schema der Artikelkennung"
+
+#: einvoice-model/php/view/Context.php:380 einvoice-model/php/view/ModelBuilder.php:669 einvoice-model/php/view/ModelBuilder.php:1158
+msgid "Scheme of the object identifier"
+msgstr "Schema der Objektkennung"
+
+#: einvoice-model/php/view/Context.php:381 einvoice-model/php/view/ModelBuilder.php:568
+msgid "Scheme of the registration number"
+msgstr "Schema der Register-/Registriernummer"
+
+#: einvoice-model/php/view/Context.php:382 einvoice-model/php/view/ModelBuilder.php:2814
+msgid "Self-billed invoice"
+msgstr "Rechnung im Gutschriftsverfahren (Self-Billed Invoice)"
+
+#: einvoice-model/php/view/Context.php:383 einvoice-model/php/view/ModelBuilder.php:593
+msgid "Seller information"
+msgstr "Informationen zum Verkäufer"
+
+#: einvoice-model/php/view/Context.php:384 einvoice-model/php/view/ModelBuilder.php:1978
+msgid "Seller tax representative"
+msgstr "Steuerbevollmächtigter des Verkäufers"
+
+#: einvoice-model/php/view/Context.php:385 einvoice-model/php/view/ModelBuilder.php:1205
+msgid "Seller's item number"
+msgstr "Artikelnummer"
+
+#: einvoice-model/php/view/Context.php:386 einvoice-model/php/view/ModelBuilder.php:2967
+msgid "Services outside scope of tax"
+msgstr "Nicht steuerbare Leistungen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:184
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:186
+msgid "Ship from"
+msgstr "Versender"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:188
+msgid "Show BT codes"
+msgstr "BT-Codes zeigen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:107
+msgid "Show BT numbers by default"
+msgstr "BT-Nummern standardmäßig anzeigen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:674
+msgid "Show validation report"
+msgstr "Prüfbericht einblenden"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:190
+msgid "Size"
+msgstr "Größe"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:192
+msgid "Somebody else has saved these settings in the meantime. Close the dialog and open it again to see their version."
+msgstr "Jemand anderes hat diese Einstellungen inzwischen gespeichert. Schliessen Sie den Dialog und öffnen Sie ihn neu, um dessen Fassung zu sehen."
+
+#: einvoice-model/php/view/Context.php:387 einvoice-model/php/view/ModelBuilder.php:3011
+msgid "Spain"
+msgstr "Spanien"
+
+#: einvoice-model/php/view/Context.php:388 einvoice-model/php/view/ModelBuilder.php:686
+msgid "Specification identifier"
+msgstr "Spezifikationskennung"
+
+#: einvoice-model/php/view/Context.php:389 einvoice-model/php/view/ModelBuilder.php:2961
+msgid "Standard rate"
+msgstr "Normalsatz"
+
+#: einvoice-model/php/view/Context.php:390 einvoice-model/php/view/ModelBuilder.php:2866
+msgid "Standing agreement"
+msgstr "Vereinbartes Verfahren (Standing Agreement)"
+
+#: einvoice-model/php/view/Context.php:391 einvoice-model/php/view/ModelBuilder.php:404 einvoice-model/php/view/ModelBuilder.php:1162
+msgid "Start date"
+msgstr "Beginn"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:195 einvoice-model/php/view/Context.php:393 einvoice-model/php/view/ModelBuilder.php:2078
+msgid "Stated %1$s, calculated %2$s."
+msgstr "Ausgewiesen %1$s, gerechnet %2$s."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:198
+msgid "Sub invoice lines of item %s"
+msgstr "Unterpositionen der Position %s"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:201
+msgid "Sub line %s"
+msgstr "Unterposition %s"
+
+#: einvoice-model/php/view/Context.php:394 einvoice-model/php/view/ModelBuilder.php:1661
+msgid "Subject"
+msgstr "Betreff"
+
+#: einvoice-model/php/view/Context.php:395 einvoice-model/php/view/ModelBuilder.php:1606
+msgid "Sum of line net amounts"
+msgstr "Summe der Positionsnettobeträge"
+
+#: einvoice-model/php/view/Context.php:396 einvoice-model/php/view/ModelBuilder.php:3135
+msgid "Supplier remarks"
+msgstr "Anmerkungen des Lieferanten"
+
+#: einvoice-viewer-for-peppol-en16931/einvoice-viewer-for-peppol-en16931.php:157
+msgid "Support"
+msgstr "Support"
+
+#: einvoice-model/php/view/Context.php:397 einvoice-model/php/view/ModelBuilder.php:3052
+msgid "Swiss Unique Business Identification Number (UIDB)"
+msgstr "Swiss Unique Business Identification Number (UIDB)"
+
+#: einvoice-model/php/view/Context.php:398 einvoice-model/php/view/ModelBuilder.php:3002
+msgid "Switzerland"
+msgstr "Schweiz"
+
+#: einvoice-model/php/view/Context.php:399 einvoice-model/php/view/ModelBuilder.php:1560
+msgid "Tax amount"
+msgstr "Steuerbetrag"
+
+#: einvoice-model/php/view/Context.php:400 einvoice-model/php/view/ModelBuilder.php:3136
+msgid "Tax declaration"
+msgstr "Steuerliche Angaben"
+
+#: einvoice-model/php/view/Context.php:401 einvoice-model/php/view/ModelBuilder.php:1564
+msgid "Tax due date code"
+msgstr "Code für das Datum der Steuerfälligkeit"
+
+#: einvoice-model/php/view/Context.php:402 einvoice-model/php/view/ModelBuilder.php:2969
+msgid "Tax for production, services and importation in Ceuta and Melilla"
+msgstr "Steuer auf Produktion, Dienstleistungen und Einfuhr in Ceuta und Melilla (IPSI)"
+
+#: einvoice-model/php/view/Context.php:403 einvoice-model/php/view/ModelBuilder.php:576
+msgid "Tax number"
+msgstr "Steuernummer"
+
+#: einvoice-model/php/view/Context.php:404 einvoice-model/php/view/ModelBuilder.php:1563
+msgid "Tax point date"
+msgstr "Datum der Steuerfälligkeit"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:203
+msgid "Tax registration"
+msgstr "Steuerregistrierung"
+
+#: einvoice-model/php/view/Context.php:405 einvoice-model/php/view/ModelBuilder.php:1968
+msgid "Tax representative VAT identifier"
+msgstr "USt-IdNr. des Steuerbevollmächtigten"
+
+#: einvoice-model/php/view/Context.php:406 einvoice-model/php/view/ModelBuilder.php:1967
+msgid "Tax representative name"
+msgstr "Name des Steuerbevollmächtigten"
+
+#: einvoice-model/php/view/Context.php:407 einvoice-model/php/view/ModelBuilder.php:1969
+msgid "Tax representative postal address"
+msgstr "Postanschrift des Steuerbevollmächtigten"
+
+#: einvoice-model/php/view/Context.php:408 einvoice-model/php/view/ModelBuilder.php:1559
+msgid "Taxable amount"
+msgstr "Bemessungsgrundlage"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:204
+msgid "Technical Details ( field and rule browser, tooltips )"
+msgstr "Technical Details ( Feld- und Regelbrowser, Kurzhinweise )"
+
+#: einvoice-model/php/view/Context.php:409 einvoice-model/php/view/ModelBuilder.php:629
+msgid "Tender or lot reference"
+msgstr "Vergabenummer"
+
+#: einvoice-model/php/view/Context.php:410 einvoice-model/php/view/ModelBuilder.php:3128
+msgid "Terms of delivery"
+msgstr "Lieferbedingungen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:205
+msgid "Test document"
+msgstr "Testdokument"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:207
+msgid "The CII field catalog could not be loaded."
+msgstr "Der CII-Feldkatalog konnte nicht geladen werden."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:210
+msgid "The Extended Profiles add-on is in the folder, but its field package for %s could not be loaded. The core fields are shown."
+msgstr "Der Zusatz Extended Profiles liegt im Ordner, aber sein Feldpaket für %s ließ sich nicht laden. Gezeigt werden die Kernfelder."
+
+#: einvoice-model/php/view/Context.php:411 einvoice-model/php/view/Reader.php:122
+msgid "The PDF does not contain a readable e-invoice ( ZUGFeRD / Factur-X )."
+msgstr "Das PDF enthält keine lesbare E-Rechnung ( ZUGFeRD / Factur-X )."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:684
+msgid "The PDF export failed. Please try again."
+msgstr "Der PDF-Export ist fehlgeschlagen. Bitte erneut versuchen."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:212
+msgid "The UBL field catalog could not be loaded."
+msgstr "Der UBL-Feldkatalog konnte nicht geladen werden."
+
+#: einvoice-model/php/view/Context.php:412 einvoice-model/php/view/Reader.php:356
+msgid "The UBL invoice could not be converted."
+msgstr "Die UBL-Rechnung konnte nicht konvertiert werden."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:680
+msgid "The Visualizer failed. Please try again."
+msgstr "Der Visualizer ist fehlgeschlagen. Bitte erneut versuchen."
+
+#: einvoice-model/php/view/Context.php:413 einvoice-model/php/view/Reader.php:223
+msgid "The XML could not be read as an e-invoice."
+msgstr "Die XML konnte nicht als E-Rechnung gelesen werden."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:214
+msgid "The attachment could not be decoded."
+msgstr "Die Anlage ließ sich nicht entschlüsseln."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:216
+msgid "The attachment could not be shown."
+msgstr "Die Anlage ließ sich nicht anzeigen."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:218
+msgid "The backup is loaded."
+msgstr "Die Sicherung ist geladen."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:393
+msgid "The choice applies to all eInvoice tools on this site. Kit H is the default."
+msgstr "Die Auswahl gilt für alle eInvoice-Werkzeuge auf dieser Website. Vorgabe ist Kit H."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:220
+msgid "The content of this attachment does not match its declared file type. It is neither opened nor offered for saving."
+msgstr "Der Inhalt dieser Anlage passt nicht zu dem Dateityp, den sie angibt. Sie wird weder geöffnet noch zum Speichern angeboten."
+
+#: einvoice-model/php/view/Context.php:417 einvoice-model/php/view/ModelBuilder.php:379
+msgid "The e-invoice could not be visualized."
+msgstr "Die E-Rechnung konnte nicht visualisiert werden."
+
+#: einvoice-model/php/view/Context.php:418 einvoice-model/php/view/Reader.php:103
+msgid "The e-invoice library is not installed."
+msgstr "Die E-Rechnungs-Bibliothek ist nicht installiert."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:123
+msgid "The e-invoice viewer is not available for your account."
+msgstr "Der E-Rechnungs-Viewer steht für Ihr Konto nicht zur Verfügung."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:223 einvoice-model/php/view/Context.php:415
+msgid "The end date is before the start date (%s)."
+msgstr "Das Enddatum liegt vor dem Anfangsdatum (%s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:677
+msgid "The export failed. Please try again."
+msgstr "Der Export ist fehlgeschlagen. Bitte erneut versuchen."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:225
+msgid "The file could not be read."
+msgstr "Die Datei konnte nicht gelesen werden."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:227
+msgid "The file is too large."
+msgstr "Die Datei ist zu groß."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:687
+msgid "The identifier check failed. Please try again."
+msgstr "Die Kennungsprüfung ist fehlgeschlagen. Bitte erneut versuchen."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:373
+msgid "The kit could not be stored. Please try again."
+msgstr "Das Kit konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:374
+msgid "The kit file is larger than 32 KB."
+msgstr "Die Kit-Datei ist größer als 32 KB."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:376
+msgid "The kit was stored and is now chosen for every eInvoice tool."
+msgstr "Das Kit ist gespeichert und jetzt für alle eInvoice-Werkzeuge gewählt."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:229 einvoice-model/php/view/Context.php:416
+msgid "The payment due date is before the invoice date."
+msgstr "Das Fälligkeitsdatum liegt vor dem Rechnungsdatum."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:231
+msgid "The preview needs the PDF reader, which could not be loaded. The file can still be saved."
+msgstr "Für die Vorschau wird der PDF-Leser gebraucht, und er ließ sich nicht laden. Die Datei lässt sich trotzdem speichern."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:233
+msgid "The settings could not be saved."
+msgstr "Die Einstellungen konnten nicht gespeichert werden."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:188 einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:671
+msgid "The validation failed. Please try again."
+msgstr "Die Prüfung ist fehlgeschlagen. Bitte erneut versuchen."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:235
+msgid "These sections will be replaced as a whole:"
+msgstr "Diese Abschnitte werden als Ganzes ersetzt:"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:237
+msgid "Third party payment amount"
+msgstr "Betrag der Fremdforderung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:239
+msgid "Third party payment description"
+msgstr "Beschreibung der Fremdforderung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:241
+msgid "Third party payment total"
+msgstr "Summe Fremdforderungen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:243
+msgid "Third party payment type"
+msgstr "Art der Fremdforderung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:245
+msgid "Third party payments"
+msgstr "Fremdforderungen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:247
+msgid "This PDF carries no invoice XML. A scanned or ordinary invoice PDF holds no data that can be read."
+msgstr "In diesem PDF steckt keine Rechnungs-XML. Ein eingescanntes oder gewöhnliches Rechnungs-PDF trägt keine Daten, die sich auswerten lassen."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:249
+msgid "This backup holds no settings."
+msgstr "Diese Sicherung enthält keine Einstellungen."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:251
+msgid "This file is not a settings backup."
+msgstr "Diese Datei ist keine Sicherung von Einstellungen."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:375
+msgid "This file is not a token file of a design kit. It may only hold custom properties under :root and :host, among them --bg and --accent."
+msgstr "Diese Datei ist keine Token-Datei eines Design-Kits. Sie darf nur Custom Properties unter :root und :host enthalten, darunter --bg und --accent."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:253
+msgid "This file type is not allowed in an e-invoice. It is neither opened nor offered for saving."
+msgstr "Dieser Dateityp ist in einer E-Rechnung nicht zulässig. Die Datei wird weder geöffnet noch zum Speichern angeboten."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:255
+msgid "This file was written by a newer version and cannot be loaded here."
+msgstr "Diese Datei stammt aus einer neueren Fassung und lässt sich hier nicht laden."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:257
+msgid "This invoice cannot be shown at the moment."
+msgstr "Diese Rechnung kann gerade nicht angezeigt werden."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:260
+msgid "This invoice uses the extension %s. All core fields are shown; the additional fields of the extension come with the Extended Profiles add-on."
+msgstr "Diese Rechnung benutzt die Erweiterung %s. Alle Kernfelder werden gezeigt; die zusätzlichen Felder der Erweiterung kommen mit dem Zusatz Extended Profiles."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:262
+msgid "This section could not be shown."
+msgstr "Dieser Abschnitt lässt sich nicht anzeigen."
+
+#: einvoice-model/php/view/Context.php:419 einvoice-model/php/view/ModelBuilder.php:1611
+msgid "Total VAT"
+msgstr "USt.-Gesamtbetrag"
+
+#: einvoice-model/php/view/Context.php:420 einvoice-model/php/view/ModelBuilder.php:1619
+msgid "Total VAT in accounting currency"
+msgstr "USt.-Gesamtbetrag in Buchungswährung"
+
+#: einvoice-model/php/view/Context.php:421 einvoice-model/php/view/ModelBuilder.php:1624
+msgid "Total with VAT"
+msgstr "Gesamtbetrag mit USt."
+
+#: einvoice-model/php/view/Context.php:422 einvoice-model/php/view/ModelBuilder.php:1610
+msgid "Total without VAT"
+msgstr "Gesamtbetrag ohne USt."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:264 einvoice-model/php/view/Context.php:423 einvoice-model/php/view/ModelBuilder.php:1631
+msgid "Totals"
+msgstr "Summen"
+
+#: einvoice-model/php/view/Context.php:424 einvoice-model/php/view/ModelBuilder.php:535
+msgid "Trading name"
+msgstr "Abweichender Handelsname"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:145
+msgid "Trust proxy header"
+msgstr "Proxy-Header vertrauen"
+
+#: einvoice-model/php/view/Context.php:425 einvoice-model/php/view/ModelBuilder.php:1323 einvoice-model/php/view/ModelBuilder.php:1465
+msgid "Type"
+msgstr "Art"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:266 einvoice-model/php/view/Context.php:426 einvoice-model/php/view/ModelBuilder.php:1753
+msgid "Type of referenced document"
+msgstr "Typ des referenzierten Dokuments"
+
+#: einvoice-model/php/view/Context.php:427 einvoice-model/php/view/Reader.php:347
+msgid "UBL support requires the horstoeko/zugferdublbridge library."
+msgstr "UBL-Unterstützung erfordert die Bibliothek horstoeko/zugferdublbridge."
+
+#: einvoice-model/php/view/Context.php:428 einvoice-model/php/view/ModelBuilder.php:3058
+msgid "UBL.BE Party Identifier"
+msgstr "UBL.BE Party Identifier"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:268
+msgid "Ultimate customer order date"
+msgstr "Datum der Bestellung des Endkunden"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:270
+msgid "Ultimate customer order reference"
+msgstr "Bestellnummer des Endkunden"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:272
+msgid "Ultimate ship to"
+msgstr "Endempfänger der Lieferung"
+
+#: einvoice-model/php/view/Context.php:429 einvoice-model/php/view/ModelBuilder.php:1171
+msgid "Unit"
+msgstr "Einheit"
+
+#: einvoice-model/php/view/Context.php:430 einvoice-model/php/view/ModelBuilder.php:3012
+msgid "United Kingdom"
+msgstr "Vereinigtes Königreich"
+
+#: einvoice-model/php/view/Context.php:431 einvoice-model/php/view/ModelBuilder.php:3013
+msgid "United States"
+msgstr "Vereinigte Staaten"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:274 einvoice-model/php/view/Context.php:432 einvoice-model/php/view/Reader.php:152
+msgid "Unsupported file. Please upload a ZUGFeRD/Factur-X PDF or a CII / UBL XML invoice."
+msgstr "Nicht unterstützte Datei. Bitte laden Sie ein ZUGFeRD-/Factur-X-PDF oder eine CII- / UBL-XML-Rechnung hoch."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:371
+msgid "Upload a kit of your own"
+msgstr "Ein eigenes Kit hochladen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:276
+msgid "Upload an e-invoice"
+msgstr "E-Rechnung hochladen"
+
+#: einvoice-model/php/view/Context.php:433 einvoice-model/php/view/ModelBuilder.php:1469
+msgid "VAT %"
+msgstr "USt %"
+
+#: einvoice-model/php/view/Context.php:434 einvoice-model/php/view/ModelBuilder.php:569
+msgid "VAT ID"
+msgstr "USt-IdNr."
+
+#: einvoice-model/php/view/Context.php:435 einvoice-model/php/view/ModelBuilder.php:2964
+msgid "VAT Reverse Charge"
+msgstr "Umkehrung der Steuerschuldnerschaft (Reverse Charge)"
+
+#: einvoice-model/php/view/Context.php:436 einvoice-model/php/view/ModelBuilder.php:413
+msgid "VAT accounting currency"
+msgstr "Steuerwährung"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:278 einvoice-model/php/view/Context.php:437 einvoice-model/php/view/ModelBuilder.php:1553
+msgid "VAT breakdown"
+msgstr "USt-Aufschlüsselung"
+
+#: einvoice-model/php/view/Context.php:438 einvoice-model/php/view/ModelBuilder.php:1193 einvoice-model/php/view/ModelBuilder.php:1468
+msgid "VAT category"
+msgstr "USt-Kategorie"
+
+#: einvoice-model/php/view/Context.php:439 einvoice-model/php/view/ModelBuilder.php:2965
+msgid "VAT exempt for EEA intra-community supply of goods and services"
+msgstr "Steuerbefreite innergemeinschaftliche Lieferung von Gegenständen und Dienstleistungen im EWR"
+
+#: einvoice-model/php/view/Context.php:440 einvoice-model/php/view/ModelBuilder.php:1194
+msgid "VAT rate"
+msgstr "Umsatzsteuersatz in %"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:186
+msgid "Validate with KoSIT"
+msgstr "Mit KoSIT prüfen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:210
+msgid "Validation with KoSIT"
+msgstr "Prüfung mit KoSIT"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:280
+msgid "View"
+msgstr "Ansehen"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:1027 einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:1036 einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:206
+msgid "Visualizer"
+msgstr "Visualizer"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-settings.php:247
+msgid "Who may use the viewer how often, and from which role each add-on is available. Administrators are never limited."
+msgstr "Wer den Viewer wie oft nutzen darf und ab welcher Rolle jede Erweiterung zur Verfügung steht. Administratoren sind nie begrenzt."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:283 einvoice-model/php/view/Context.php:442
+msgid "With VAT category %1$s the VAT rate must be 0 (%2$s)."
+msgstr "Bei der Umsatzsteuerkategorie %1$s muss der Steuersatz 0 sein (%2$s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:286 einvoice-model/php/view/Context.php:444
+msgid "With VAT category %1$s the VAT rate must be greater than zero (%2$s)."
+msgstr "Bei der Umsatzsteuerkategorie %1$s muss der Steuersatz größer als null sein (%2$s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:289 einvoice-model/php/view/Context.php:446
+msgid "With VAT category %1$s the tax amount must be 0 (%2$s)."
+msgstr "Bei der Umsatzsteuerkategorie %1$s muss der Steuerbetrag 0 sein (%2$s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:292 einvoice-model/php/view/Context.php:448
+msgid "With VAT category %1$s there must be no exemption reason and no exemption reason code (%2$s)."
+msgstr "Bei der Umsatzsteuerkategorie %1$s darf weder ein Befreiungsgrund noch ein Code dafür stehen (%2$s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:295 einvoice-model/php/view/Context.php:450
+msgid "With VAT category %1$s, EN 16931 requires an exemption reason or an exemption reason code (%2$s)."
+msgstr "Bei der Umsatzsteuerkategorie %1$s verlangt die EN 16931 einen Befreiungsgrund oder einen Code dafür (%2$s)."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:297
+msgid "Yes"
+msgstr "Ja"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:125
+msgid "You have reached the daily limit of invoices. Please try again tomorrow."
+msgstr "Sie haben die tägliche Zahl an Rechnungen erreicht. Bitte versuchen Sie es morgen wieder."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:299
+msgid "You may look at these settings, but not change them."
+msgstr "Sie dürfen diese Einstellungen ansehen, aber nicht ändern."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:301
+msgid "You may not change these settings."
+msgstr "Sie dürfen diese Einstellungen nicht ändern."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-plugin.php:681
+msgid "Your browser blocked the pop-up window. Please allow pop-ups for this site and try again."
+msgstr "Ihr Browser hat das Pop-up-Fenster blockiert. Bitte erlauben Sie Pop-ups für diese Seite und versuchen Sie es erneut."
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:303
+msgid "ZUGFeRD / Factur-X PDF or CII / UBL XML"
+msgstr "ZUGFeRD- / Factur-X-PDF oder CII- / UBL-XML"
+
+#: einvoice-model/php/view/Context.php:451 einvoice-model/php/view/ModelBuilder.php:2962
+msgid "Zero rated goods"
+msgstr "Nullsatz"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:306
+msgid "by %s"
+msgstr "bis %s"
+
+#: einvoice-model/php/view/Context.php:452 einvoice-model/php/view/ModelBuilder.php:2925
+msgid "day"
+msgstr "Tag"
+
+#: einvoice-model/php/view/Context.php:453 einvoice-model/php/view/ModelBuilder.php:2921
+msgid "each"
+msgstr "Stück"
+
+#: einvoice-model/php/view/Context.php:454 einvoice-model/php/view/ModelBuilder.php:2924
+msgid "hour"
+msgstr "Std."
+
+#: einvoice-model/php/view/Context.php:455 einvoice-model/php/view/ModelBuilder.php:2923
+msgid "litre"
+msgstr "Liter"
+
+#: einvoice-model/php/view/Context.php:456 einvoice-model/php/view/ModelBuilder.php:2927
+msgid "month"
+msgstr "Monat"
+
+#: einvoice-model/php/view/Context.php:457 einvoice-model/php/view/ModelBuilder.php:2917 einvoice-model/php/view/ModelBuilder.php:2918 einvoice-model/php/view/ModelBuilder.php:2919 einvoice-model/php/view/ModelBuilder.php:2920
+msgid "piece"
+msgstr "Stück"
+
+#: einvoice-model/php/view/Context.php:458 einvoice-model/php/view/ModelBuilder.php:2922
+msgid "set"
+msgstr "Set"
+
+#: einvoice-model/php/view/Context.php:459 einvoice-model/php/view/ModelBuilder.php:2926
+msgid "week"
+msgstr "Woche"
+
+#: einvoice-model/php/view/Context.php:460 einvoice-model/php/view/ModelBuilder.php:2928
+msgid "year"
+msgstr "Jahr"
+
+#: einvoice-viewer-for-peppol-en16931/includes/class-spev-js-texts.php:308 einvoice-model/php/view/Context.php:461 einvoice-model/php/view/ModelBuilder.php:1759
+msgid "yes"
+msgstr "ja"
+

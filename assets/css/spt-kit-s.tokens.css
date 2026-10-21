@@ -1,0 +1,139 @@
+/* spt-kit-s.tokens.css — nur der Token-Block von Kit S (v1.8, Token unverändert).
+   :root für normale Seiten, :host für Shadow-DOM-Komponenten.
+   Zusammen mit spt-kit.components.css ergibt sich spt-kit-s.css. */
+
+/* ============================================================
+   Tokens — Kit S  ·  Site
+   Für Werkzeuge, die auf invoicepress.de / specialpress.de
+   eingebettet werden oder optisch zur Website gehören.
+   Abgeleitet aus dem Child-Theme specialpress-child
+   (assets/css/00-tokens.css, Stand 17.10.2026):
+   Stahlblau --sp-brand, Orange --sp-accent, Papiergrau,
+   kantig, Linien statt Schatten.
+   Abweichungen von der Website (Barrierefreiheit, WCAG AA):
+     --accent  #456B80 statt #5F8FA8 (weiße Schrift: 5,7 : 1 statt 3,5 : 1)
+     --faint   #656D80 statt #7A8399 (auf Weiß: 5,2 : 1 statt 3,8 : 1)
+   Orange bleibt Signal- und Markenfarbe (--cta, --top-accent,
+   --mark-strong); Schrift darauf immer dunkel (--on-cta, 7,9 : 1).
+   Schriften: Space Grotesk, Inter, JetBrains Mono
+   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+   ============================================================ */
+:root,:host{
+  /* Schrift — wie --sp-font-* der Website */
+  --font:        'Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-title:  'Space Grotesk','Inter',ui-sans-serif,system-ui,sans-serif;
+  --mono:        'JetBrains Mono',ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --fs:          15px;      /* --sp-fs-base */
+  --fs-h1:       32px;      /* --sp-fs-2xl */
+  --fs-h2:       17px;
+  --fs-sm:       13px;      /* --sp-fs-sm */
+  --fs-xs:       11px;      /* --sp-fs-xs */
+  --fs-s:        13px;      /* 1.9: vorher fest in den Bausteinen */
+  --fs-s2:       12.5px;
+  --fs-mini:     12px;
+  --lh:          1.6;       /* --sp-lh-base */
+
+  /* Maße — kantig wie die Website (--sp-radius: 0) */
+  --radius:      0px;
+  --radius-lg:   0px;
+  --ctl-h:       36px;
+  --pad:         16px;      /* --sp-space-4 */
+  --pad-lg:      24px;      /* --sp-space-5 */
+  --row-pad:     8px;       /* --sp-space-2 */
+  --top-h:       56px;
+  --nav-w:       224px;
+  --rail-w:      68px;
+  --doc-w:       1080px;
+  --drop-max:    960px;
+
+  /* Flächen und Linien — --sp-paper / -panel / -panel-alt / -rule */
+  --bg:          #eceef2;
+  --surface:     #ffffff;
+  --surface-2:   #f7f8fa;
+  --border:      #d5d8de;
+  --border-strong:#b8bdc7;
+  --field-border:#b8bdc7;   /* Eingabefelder etwas kräftiger als Trennlinien */
+
+  /* Text — --sp-ink / -ink-2; --faint siehe Kopf */
+  --text:        #0b1220;
+  --muted:       #4a5468;
+  --faint:       #656d80;
+
+  /* Kopfzeile — hell mit Linie, Bildmarke dunkel wie das Favicon */
+  --top-bg:      #ffffff;
+  --top-fg:      #0b1220;
+  --top-sub:     #656d80;
+  --top-line:    #d5d8de;
+  --top-hover:   #f7f8fa;
+  --mark-bg:     #0b1220;
+  --top-accent:  #ff883e;   /* nur Wortmarke (special<em>Press</em>) — Logo, kein Fließtext */
+
+  /* Akzent — Stahlblau der Website */
+  --accent:      #456b80;   /* --sp-brand-dark */
+  --accent-2:    #34525f;
+  --accent-soft: #eaf1f4;   /* --sp-brand-soft */
+  --on-accent:   #ffffff;
+  --brand:       #5f8fa8;   /* --sp-brand: Linien, Symbole, Flächen — nicht für kleine Schrift */
+
+  /* Zweitakzent — Orange der Website. Von der Komponentenschicht nicht
+     benutzt; für Kaufen-/Start-Schaltflächen im Werkzeug selbst:
+     .btn.cta{background:var(--cta);border-color:var(--cta);color:var(--on-cta)} */
+  --cta:         #ff883e;   /* --sp-accent */
+  --cta-soft:    #ffeee4;   /* --sp-accent-soft */
+  --on-cta:      #0b1220;
+
+  /* Signale — wie --sp-ok / -warn / -error; Hinweis = Marke */
+  --ok:          #067647;  --ok-soft:  #ecfdf3;
+  --warn:        #b54708;  --warn-soft:#fffaeb;
+  --err:         #b42318;  --err-soft: #fef3f2;
+  --info:        #456b80;  --info-soft:#eaf1f4;
+  --mark:        #ffeee4;   /* Textmarker in Orange-Weich statt Gelb */
+  --err-strong:  #7f1d1d;
+  --mark-strong: #ff883e;
+  --zebra:       #f2f4f8;
+
+  /* Charakter */
+  --shadow:      none;
+  --shadow-lg:   none;
+  --badge-r:     0px;
+  --badge-bd:    currentColor;
+  --badge-tt:    uppercase;
+  --badge-ls:    .05em;     /* --sp-tracking-wide */
+  --btn-fg:      var(--text);
+  --btn-fw:      500;
+  --ph-ff:       var(--mono);
+  --ph-tt:       uppercase;
+  --ph-ls:       .12em;     /* --sp-tracking-eyebrow */
+  --ph-fs:       11px;
+  --ph-bg:       var(--surface-2);
+  --ph-fw:       600;
+  --val-bd:      var(--border);
+  --val-bg:      var(--surface-2);
+  --val-pad:     1px 6px;
+  --sig-w:       3px;
+  --sel-bar:     inset var(--sig-w) 0 0 var(--accent);
+  --crumb-ff:    var(--mono);
+  --crumb-tt:    uppercase;
+  --crumb-ls:    .12em;
+  --eyebrow-d:   flex;
+  --verdict-fg:  #ffffff;
+  --code-bg:     var(--surface-2);
+}
+
+/* ---- Dunkelmodus: <html data-theme="dark"> ----
+   Die Website hat keinen Dunkelmodus; die Werte sind aus den
+   hellen abgeleitet (Stahlblau aufgehellt, Orange bleibt). */
+:root[data-theme="dark"],:host([data-theme="dark"]){
+  --bg:#0e1319; --surface:#151b23; --surface-2:#1b222b;
+  --border:#262f3a; --border-strong:#36414e; --field-border:#3d4957;
+  --text:#e8ecf2; --muted:#9aa5b4; --faint:#89939f;
+  --top-bg:#111720; --top-fg:#e8ecf2; --top-sub:#8b95a4; --top-line:#262f3a;
+  --top-hover:rgba(255,255,255,.08); --mark-bg:#ff883e; --top-accent:#ff9d5c;
+  --accent:#8db6cc; --accent-2:#b3d0df; --accent-soft:#18262e; --on-accent:#0e1319;
+  --brand:#8db6cc;
+  --cta:#ff9d5c; --cta-soft:#33221a; --on-cta:#0e1319;
+  --ok:#43bd7f; --ok-soft:#10281d; --warn:#dda44a; --warn-soft:#2a2214;
+  --err:#ff7b72; --err-soft:#2f1a19; --info:#8db6cc; --info-soft:#18262e;
+  --code-bg:#0a0f14; --verdict-fg:#0e1319;
+  --zebra:#1c232e; --err-strong:#ff9f97; --mark-strong:#ff9d5c;
+}

@@ -1,0 +1,687 @@
+/* SP E-Invoice Viewer — rendered inside a Shadow DOM ( theme-isolated ).
+ *
+ * Layout: rectangular, after the original ZUGFeRD QUBA viewer — square cards with a coloured header tab
+ * ( dark = the section carries data, light = empty section ) and label / value rows.
+ *
+ * ⚠️ THE LOOK COMES FROM THE DESIGN KIT, NOT FROM THIS FILE ( since 19.10.2026, finding B193 ). Buttons are the kit's
+ * `.btn`, the language switch is its `.btn-group`, messages are its `.note`, the settings dialog is its `.modal` with
+ * `.tabs`, the layout select is its `.field` with `.sel`. In the shadow root the kit arrives through `data-css`; in the
+ * light DOM of `<einvoice-viewer data-kit-scope>` ( the buttons and messages of the add-ons ) through
+ * `spt-kit.components.scoped.css`, the kit limited by `@scope`. This file carries only what the kit has no block for,
+ * every value a token. Until then it rebuilt `.btn` and `.sel` from tokens with Kit H's values as fallbacks, and
+ * those copies did not follow another kit.
+ *
+ * ⚠️ A RULE HERE NEVER TARGETS A CLASS OF THE KIT. The kit gate ( check-kit-usage.mjs ) stops the release build for
+ * it; the one exception, the grid of the document by container width, stands in check-kit-usage.ausnahmen.json.
+ *
+ * Theme independence:
+ *   :host { all: initial } neutralises every inherited property that would otherwise leak through the
+ *   shadow boundary. All sizes are stated in px ( NOT rem — rem would resolve against the outer document
+ *   root and re-introduce theme coupling ).
+ *
+ * ⚠️ FONTS ARE BUNDLED, NOT LOADED FROM A THIRD PARTY - copied verbatim from the explainer's
+ * assets/fonts/ ( same reasoning applies here: wordpress.org forbids loading fonts from
+ * fonts.googleapis.com, and the IP of every visitor uploading an invoice should not go to Google
+ * either way ). font-display: swap for the same reason as there - the viewer's content should not stay
+ * invisible while a font loads.
+ */
+
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url( '../fonts/inter-v20-latin/inter-v20-latin-regular.woff2' ) format( 'woff2' ); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url( '../fonts/inter-v20-latin/inter-v20-latin-500.woff2' ) format( 'woff2' ); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url( '../fonts/inter-v20-latin/inter-v20-latin-600.woff2' ) format( 'woff2' ); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url( '../fonts/inter-v20-latin/inter-v20-latin-700.woff2' ) format( 'woff2' ); }
+@font-face { font-family: 'Inter'; font-style: italic; font-weight: 400; font-display: swap; src: url( '../fonts/inter-v20-latin/inter-v20-latin-italic.woff2' ) format( 'woff2' ); }
+
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 600; font-display: swap; src: url( '../fonts/space-grotesk-v22-latin/space-grotesk-v22-latin-600.woff2' ) format( 'woff2' ); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 700; font-display: swap; src: url( '../fonts/space-grotesk-v22-latin/space-grotesk-v22-latin-700.woff2' ) format( 'woff2' ); }
+
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url( '../fonts/jetbrains-mono-v24-latin/jetbrains-mono-v24-latin-regular.woff2' ) format( 'woff2' ); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url( '../fonts/jetbrains-mono-v24-latin/jetbrains-mono-v24-latin-600.woff2' ) format( 'woff2' ); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url( '../fonts/jetbrains-mono-v24-latin/jetbrains-mono-v24-latin-700.woff2' ) format( 'woff2' ); }
+
+:host {
+	all: initial;
+	display: block;
+	contain: layout style;
+	/*
+	 * ⚠️ **FONT, SIZE AND LINE HEIGHT COME FROM THE KIT'S TOKENS, WITH THE VALUES OF KIT H AS THE FALLBACK.**
+	 * A fixed `'Inter'` and `15px` here would hold Kit H in place: measured in the app package
+	 * with Kit A, the drop area stayed in Inter although every colour and every radius already came from
+	 * Kit A. The fallback applies only when no token file is loaded.
+	 */
+	font-family: var( --font, 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif );
+	font-size: var( --fs, 15px );
+	line-height: var( --lh, 1.5 );
+	color: var( --text );
+	text-align: left;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+
+	/**
+	 * ⚠️ **THE MEASURE IS THE CONTAINER, NOT THE WINDOW.** This makes the element a query container:
+	 * `@container` further down measures **its** width.
+	 *
+	 * ⚠️ **WHY THAT IS NEEDED.** A `@media` query depends on the **window**. In the stand-alone file the
+	 * difference does not show - there the container is as wide as the window. In a WordPress theme, in an
+	 * HTML page or in SharePoint, however, the viewer sits in a content column: measured with
+	 * `@media` queries, the document view stayed two-column in a **360 px** wide container, with **152 px per
+	 * column**, because the window was 1920 px wide and the query stayed silent.
+	 *
+	 * ⚠️ `container-type: inline-size` MEASURES ONLY THE WIDTH, and that is the intended choice. `size` would
+	 * additionally require a known height - a document has none, it grows with its content.
+	 */
+	container-type: inline-size;
+	container-name: spev;
+}
+
+/**
+ * ⚠️ **THE SAME CONTAINER WITHOUT A SHADOW ROOT.** `apps/shared/build-css.mjs` rewrites `:host` to
+ * `.spev-scope` when the document view is written into an ordinary page without a shadow root. Without
+ * this second rule there would be no container there, and `@container` would fall back to the next
+ * ancestor container - or, if there is none, to the viewport. The same problem, one level higher.
+ */
+.spev-scope { container-type: inline-size; container-name: spev; }
+
+/**
+ * ⚠️ **NO GREY PAPER SURFACE UNDER THE WHOLE TOOL.** The kit puts its white blocks on `--bg`, and `body` in
+ * a WordPress page belongs to the theme. A surface of its own is right for a tool that fills a whole
+ * page; the document view, however, is a piece of content **inside** someone else's page and stands on
+ * that page's ground, not on a carpet of its own.
+ *
+ * ⚠️ **THAT LEAVES A VISIBLE OFFSET, AND IT IS FINE.** The control shell is limited to `--spev-shell-width`
+ * and centred, while the document view uses the full width of its container - measured 960 px against
+ * 1340 px in the same page. White on white it does not show.
+ */
+
+/* design tokens ( logo palette + explainer's neutral grayscale )
+ *
+ * ⚠️ **`:root, :host` - BOTH, AND THAT IS THE POINT.** `:host` applies only in the shadow DOM. The web
+ * component `<einvoice-viewer>` shows content from the light DOM ( `<slot>` for the buttons and result
+ * areas of the add-ons ), and for that content the stylesheet of the **document** applies - where `:host`
+ * defines no token at all.
+ *
+ * ⚠️ `apps/shared/build-css.mjs` describes exactly that gap and rewrites `:host` to a class for it. Its own
+ * reasoning names the right solution as well: "`spx-explainer.css` DOES NOT HAVE THE PROBLEM - it writes
+ * `:root, :host`." This file writes it the same way.
+ *
+ * ⚠️ THE FIRST BLOCK SETS NO `all: initial` - on `:root` that would reset the whole page. A shadow root
+ * does that on its own anyway.
+ */
+:root, :host {
+	/**
+	 * ⚠️ **ONLY TWO TOKENS OF ITS OWN.** Colours, fonts and surfaces come from the design kit; the document
+	 * gets the token file of the chosen kit queued for that ( `spt-kit-<x>.tokens.css`, default Kit H ),
+	 * the shadow root gets the whole kit through `data-css`.
+	 *
+	 * ⚠️ **`--spev-radius` FOLLOWS THE KIT TOKEN `--radius`.** A fixed `0` is right for Kit H only, whose
+	 * radius is zero anyway. With Kit A ( 4 px ) the buttons and boxes of this file would stand square while
+	 * the kit's surfaces next to them were rounded. With Kit H nothing changes.
+	 *
+	 * ⚠️ Where no token file arrives, the fallback `0` applies, that is the look of Kit H.
+	 *
+	 * ⚠️ **`--spev-shell-width` IS NO NUMBER OF ITS OWN BUT THE WIDTH OF THE DROP AREA.** Message, toolbar
+	 * and source line stand flush with the area above them. The area takes its width from the kit token
+	 * `--drop-max`; a number of its own here would drift at the next kit, and the toolbar would begin next
+	 * to the area instead of below it.
+	 */
+	--spev-radius:         var( --radius, 0 );
+	--spev-shell-width:    var( --drop-max );
+}
+
+.spev-viewer,
+.spev-viewer *,
+.spev-viewer *::before,
+.spev-viewer *::after {
+	box-sizing: border-box;
+}
+
+.spev-viewer {
+	color: var( --text );
+	position: relative;   /* anchors .spev-tooltip - see spev-uploader.js:initTooltips() */
+}
+
+/*
+ * The custom BT/BG tooltip (spev-uploader.js:initTooltips()), instead of the native `title` box: a
+ * browser tooltip is drawn by the OS chrome and can never pick up this stylesheet, so it cannot be made
+ * to match the rest of the layout; see AbstractTemplate::bt()'s doc block for the other half.
+ */
+
+.spev-tooltip {
+	position: absolute;
+	z-index: 50;
+	max-width: 320px;
+	padding: 10px 12px;
+	background: var( --surface );
+	border: 1px solid var( --border-strong );
+	border-left: var( --sig-w ) solid var( --accent );
+	/* Kit H separates with lines, not with shadows ( --shadow: none ) - the strong left edge and the
+	   border already lift the tooltip off the page. */
+	box-shadow: none;
+	/* ⚠️ The font follows the chosen kit, see `:host` above. */
+	font-family: var( --font );
+	/* ⚠️ The kit has no tooltip block and no size between --fs-xs ( 11 px ) and --fs-sm ( 13.5 px ); reported as a gap. */
+	font-size: var( --fs-sm );
+	line-height: var( --lh );
+	color: var( --text );
+	pointer-events: none;   /* a hover leaving the badge for the tooltip itself would otherwise re-fire mouseout on the badge and hide it mid-read */
+
+	/* CII/UBL paths ( "/rsm:CrossIndustryInvoice/…/ram:BuyerTradeParty/ram:Name" ) are one unbroken
+	   token far wider than max-width - without this they overflow the box instead of wrapping, see
+	   Screenshot 2026-09-04 115744.png. overflow-wrap alone would still prefer breaking at the ':' /
+	   '/' that XPath already has, but Chrome/Firefox only honour that AFTER trying a whole-word break
+	   first, which fails here because there is no space in the string; break-word as the word-break
+	   fallback forces the break to happen at all. */
+	overflow-wrap: break-word;
+	word-break: break-word;
+}
+
+.spev-tooltip-core {
+	font-weight: 600;
+	color: var( --text );
+	margin-bottom: 6px;
+}
+
+.spev-tooltip-ext {
+	padding-top: 6px;
+	border-top: 1px solid var( --border );
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.spev-tooltip-line {
+	font-size: var( --fs-xs );
+	color: var( --muted );
+}
+
+.spev-tooltip-label {
+	font-weight: 600;
+	color: var( --text );
+}
+
+/* ---------------------------------------------------------------- uploader */
+
+/*
+ * ⚠️ **THE DROP AREA BELONGS ENTIRELY TO THE KIT.** The element outputs the building block `.drop` with
+ * `.drop-title` and `.drop-sub`; surface, border, focus, the states `drag` and `busy`, the spinner and the
+ * format marks `.drop-sub code` stand in section 13 of the kit. A rule for the area therefore does not
+ * belong in this file but in the kit; a version of its own here would be a second one next to the kit's.
+ *
+ * ⚠️ **THE CLASS `spev-dropzone` STAYS ON THE ELEMENT, BUT ONLY AS A HANDLE FOR THE SCRIPT.** It carries no
+ * styling. Whoever gives it a rule here again builds the second version back.
+ */
+
+/**
+ * ⚠️ **MESSAGE, TOOLBAR AND SOURCE LINE STAND FLUSH WITH THE DROP AREA.** Together they are the control
+ * shell of the tool; a toolbar that begins 90 px further left than the area above it looks like a layout
+ * error. See `--spev-shell-width`.
+ *
+ * ⚠️ `margin-inline: auto` CENTRES WITHOUT TOUCHING THE SPACING ABOVE AND BELOW - each of the three rules
+ * sets that for itself, and a `margin: 0 auto` would silently discard it.
+ */
+.spev-message,
+.spev-meta {
+	max-width: var( --spev-shell-width );
+	margin-inline: auto;
+}
+
+/* ⚠️ **THE TOOLBAR SPANS THE DOCUMENT AREA, NOT THE DROP AREA** ( Ralf, 18.10.2026 ). The validators and explorers put
+   their buttons over the full width of the report; the viewer does the same, so the right-aligned buttons end at the
+   same edge in every tool. Until then the toolbar stood flush with the narrower drop area. */
+.spev-toolbar {
+	max-width: none;
+}
+
+/* The message is the kit's .note ( or muted text without a kind ); only its place in the shell stands here. */
+.spev-message {
+	margin-block: 12px;
+}
+
+.spev-result { margin-top: 16px; }
+
+/* The switches are the kit's `.chk` ( Tool Kit 1.9 ). `spev-bt-toggle-wrap` stays on them as a handle for the script and
+   for the spacing of a switch standing alone below the view; look and size belong to the kit. */
+.spev-bt-toggle-wrap { margin: 4px 0 14px; }
+
+/* ---------------------------------------------------------- "only filled fields"
+
+The switch shows only what the document really carries.
+
+⚠️ **IT BELONGS ENTIRELY TO THE KIT.** The kit hides `.only-filled .doc-field.blank`,
+`.only-filled .doc-subgroup.blank`, `.only-filled .doc-block.blank` and
+`.only-filled .tbl tbody tr.blank`. Nothing is left to do here.
+
+⚠️ **THE SUBHEADING NEEDS NO RULE OF ITS OWN.** `.doc-subgroup` holds heading and fields in one container,
+and that container carries the mark; a heading above hidden fields therefore disappears with them.
+
+⚠️ **PURELY THROUGH CSS.** The switch sets a class on `.spev-result`, nothing else. Filtering the model and
+redrawing it instead would lose the expanded states of the line table at every switch and would have to
+attach the tooltips again. */
+
+
+/* ---------------------------------------------------------- document view: what the kit does not cover
+
+The look of the document view comes from the design kit: `.doc-head` for the document header, `.doc-grid`
+for the grid, `.doc-group` for a line group, `.doc-block` with `.doc-block-head` and `.doc-block-body` for a
+block, `.doc-field` with `.doc-label` and `.doc-value` for a field row, `.doc-subgroup` with `.doc-subhead`
+for a group inside a group, `.tbl` for a table, `.totals-row` for a totals row and `.note` for the
+disclaimer.
+
+⚠️ **THE DOCUMENT VIEW HAS BUILDING BLOCKS OF ITS OWN IN THE KIT, AND THAT IS THE POINT.** With `.panel`,
+`.panel-head` and `.field` - the same parts as the validators, the explorers and the Technical Details -
+every decision for the document would also be one for the validation report: a dark tab as block header
+belongs in an invoice and not in a findings report. There are two sets, and the general parts stay
+unchanged for the other tools.
+
+⚠️ **THE KIT IS LOADED INTO THE SHADOW ROOT, NOT INTO THE DOCUMENT.** A stylesheet of the document does not
+reach across the shadow boundary. `data-css` takes several addresses for that.
+
+⚠️ **THIS FILE STANDS FIRST, THE KIT AFTER IT - BECAUSE OF `all: initial`.** The reset at the very top of
+this file clears every inherited property on the host. Whether it also hits tokens already set depends on
+how a browser applies `all` to custom properties; the answer cannot be read from the file system. With the
+kit before it, the kit's whole token set would depend on that question. With the kit after it, the
+question does not arise: its tokens come after the reset in any case. This file declares its own `--spev-`
+tokens **after** the `all: initial` block for the same reason.
+
+⚠️ **THEREFORE EVERY RULE HERE THAT IS TO OVERRIDE A KIT RULE MUST DO SO THROUGH SPECIFICITY**, not through
+order. Exactly one is affected: the base state of the field number. */
+
+/* **1. The document surface.**
+
+⚠️ **DELIBERATELY NOT `.doc-inner`.** The kit limits it to `--doc-w` and pads it all round. An invoice is a
+table and should use the full width of its container; the control shell above it has its own, narrower
+width ( `--spev-shell-width` ). */
+
+.spev-invoice {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* **2. Two field rows side by side come from the kit.**
+
+⚠️ **A RULE HERE WOULD APPLY TWICE.** The kit makes the block a container named `docblock` and sets the
+two columns; a second rule here under another container name would do the same to the same block. The
+kit has the general name, because the rule applies to every tool there, not only to the viewer.
+
+⚠️ **IN THE KIT ONLY THE TAB OF A SUBGROUP SPANS BOTH COLUMNS.** The fields of the subgroup lie in the
+same two-column grid as the other fields of the block. A subgroup that spans both columns as a whole would
+put its own fields in one column across the full width, and they would no longer match the columns above. */
+
+/* **3. The scroll area above a wide table.** The allowance/charge table has eight columns; in a narrow
+   content column it must scroll horizontally instead of stretching the grid. */
+
+.spev-table-wrap { overflow-x: auto; }
+
+/* **4. The field number ABOVE the value in a table cell, not next to it.** In a right-aligned number
+   column the badge would otherwise press against the digits. */
+
+.spev-cell-bt { margin-bottom: 2px; }
+.spev-cell-bt .spev-bt { margin-left: 0; }
+
+/* **4a. The section "Attachments" wraps instead of scrolling sideways.** Seven columns with long headings
+   such as "Type of the referenced document" are wider than the viewer, because the kit does not let table
+   headings wrap. Here they may, and a long file name or a long address without spaces may break anywhere.
+   ⚠️ The selector needs `.spev-attachments` in front. The kit is loaded after this file, and a bare `.tbl th`
+   would have the same specificity as the kit's rule and would lose. */
+
+.spev-attachments .tbl th { white-space: normal; }
+.spev-attachments .tbl td { overflow-wrap: anywhere; }
+
+/* **5. A field value that is a link.** */
+
+a.doc-value.spev-link { text-decoration: underline; text-underline-offset: 2px; }
+
+/* **6. The switch for the field numbers.**
+
+⚠️ **THE KIT DOES NOT KNOW IT, AND IT DOES NOT BELONG THERE** - it is a peculiarity of this view. The
+**look** of the badge comes from `.badge.code`; only its base state and the switch stand here.
+
+⚠️ **THE SELECTOR BEGINS WITH `:host`, AND THAT IS THE WHOLE TRICK.** The kit sets `.badge` to
+`display: inline-flex`, and the kit is loaded **after** this file ( reason above ). A bare
+`.spev-bt { display: none }` would have the same specificity and would therefore lose. `:host .spev-bt`
+counts one pseudo-class more and wins regardless of the order. */
+
+:host .spev-bt {
+	display: none;
+	margin-left: 6px;
+	vertical-align: middle;
+	white-space: nowrap;
+	cursor: help;
+}
+
+.spev-result.spev-show-bt .spev-bt { display: inline-flex; }
+
+.spev-bt:focus-visible { outline: 2px solid var( --accent ); outline-offset: 1px; }
+
+/*
+ * A badge is clickable only while an add-on has set `viewer.onBadgeClick` ( Technical Details open the
+ * reference list of the field ). The element sets `spev-bt-click` on the drawing for exactly that time; without it
+ * the badge must not look clickable.
+ */
+.spev-result.spev-bt-click .spev-bt { cursor: pointer; }
+.spev-result.spev-bt-click .spev-bt:hover { text-decoration: underline; }
+
+/*
+ * The second badge of an add-on ( `viewer.addBadge()` ), for example the name of the reference list a code comes
+ * from. It has the shape of the BT badge and appears and disappears with it, because it explains the same field.
+ * ⚠️ `:host` IN FRONT for the same reason as above: the kit's `.badge` would otherwise show it always.
+ */
+:host .spev-bt-extra {
+	display: none;
+	margin-left: 4px;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.spev-result.spev-show-bt .spev-bt-extra { display: inline-flex; }
+.spev-bt-extra[ role="button" ] { cursor: pointer; }
+.spev-bt-extra[ role="button" ]:hover { text-decoration: underline; }
+.spev-bt-extra:focus-visible { outline: 2px solid var( --accent ); outline-offset: 1px; }
+
+/* ---------------------------------------------------------- settings dialog
+   The button "Settings" in its own row above the drop area, and the shared dialog of the add-ons
+   ( `addSettingsSection()` ). The dialog is the kit's modal: `<dialog class="modal-backdrop">` around a `.modal` with
+   `.modal-head`, `.tabs`, `.modal-body`, a `.note` for the message and `.modal-foot`. These rules only make a native
+   `<dialog>` carry that markup. */
+
+.spev-settings-bar { display: flex; justify-content: flex-end; margin-block: 0 8px; }
+
+/*
+ * ⚠️ **THE DIALOG ELEMENT IS THE KIT'S BACKDROP, SO THE BROWSER'S OWN DIALOG BOX MUST GO.** A `<dialog>` brings a
+ * border, a padding, a white surface and a maximum size of its own; the kit's `.modal-backdrop` sets position, inset,
+ * grid and its shade, but not those. Without this rule the shade stood inside a framed white box.
+ *
+ * ⚠️ **AND A CLOSED DIALOG MUST STAY HIDDEN.** The browser hides it with `dialog:not([open]) { display: none }` in its
+ * own stylesheet; the kit's `display: grid` on `.modal-backdrop` is an author rule and beats it.
+ *
+ * ⚠️ `::backdrop` STAYS TRANSPARENT. The shade comes from `.modal-backdrop`; a second one would darken twice.
+ */
+dialog.spev-settings { max-width: none; max-height: none; width: auto; height: auto; margin: 0; padding: var( --pad ); border: 0; }
+dialog.spev-settings:not( [ open ] ) { display: none; }
+dialog.spev-settings::backdrop { background: transparent; }
+
+/* The add-ons' sections hold forms with two columns; the dialog is the kit's `.modal.wide` ( 860 px, Tool Kit 1.9 ). */
+
+.spev-settings-tabs { flex-wrap: wrap; padding-inline: var( --pad ); }
+.spev-settings-message { margin: 0 var( --pad ) var( --pad ); }
+.spev-settings-export { margin-right: auto; }
+
+/*
+ * The supplier list of the Inbound Check in a window of its own ( Ralf, 20.10.2026 ), wider than the settings dialog: seven
+ * columns did not fit into the kit's widest modal, `.modal.wide` with 860 px. The window is a second dialog with the
+ * classes of the first, so the three rules above serve it as well.
+ *
+ * ⚠️ THREE PARTS IN THE SELECTOR. `.modal.wide` has two classes; with two here the order of the files would decide.
+ */
+dialog.spev-suppliers > .spev-suppliers-modal { max-width: 1200px; width: min( 1200px, calc( 100vw - 32px ) ); }
+
+/* ⚠️ **NO RULE OF ITS OWN FOR `.doc-grid` ANY MORE.** Up to Tool Kit 1.8 the kit made its grid one-column only for a
+   narrow **window**, and the viewer in a narrow content column ( SharePoint, a theme with a sidebar ) stayed two-column;
+   a container query here made it one-column. Since 1.9.1 the kit's grid breaks by its own width ( at most two
+   columns, one below about 600 px of room ), which is what that rule did. ⚠️ 1.9 without the .1 allowed three and more
+   columns in a wide window. A rule here again would be a second version next to the kit's. */
+
+/* ⚠️ **THE PREVIEW OF AN ATTACHMENT SPANS THE WHOLE BLOCK.** It is the kit's `.doc-block-body`, which lays its children
+   out in two columns for label and value. Its children here are a title line and the pages; in two columns the page
+   stood in the left half, measured 603 px of 1 185. Only the placement is set here, the look stays the kit's. */
+.spev-att-preview > * { grid-column: 1 / -1; }
+
+/* ---------------------------------------------------------- action toolbar
+   The row for the buttons of the add-ons, above `.spev-result`: action buttons after the rendered invoice would mean
+   scrolling past the whole document to reach them. A plain flex row without a fixed number of children; a hidden
+   button leaves no gap, because `gap` applies only between visible children. */
+
+.spev-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	/* ⚠️ `margin-block`, not the shorthand - otherwise it would reset `margin-inline: auto` again. */
+	margin-block: 4px 2px;
+}
+
+/*
+ * ⚠️ **THE BUTTONS ARE THE KIT'S `.btn` AND HAVE NO RULE HERE** ( since 19.10.2026 ). Those of the element stand in
+ * the shadow root, where the kit is linked; those of the add-ons stand in the light DOM of
+ * `<einvoice-viewer data-kit-scope>`, where spt-kit.components.scoped.css reaches them. Until then this place rebuilt
+ * `.btn` from tokens, because the kit did not reach the light DOM, and the copy stayed in Kit H's proportions under
+ * every other kit.
+ */
+
+/* ---------------------------------------------------------- validator bridge
+   Result area for the optional server-side validation this plugin hands off to the three validators, see
+   class-spev-plugin.php::enqueue_assets() and spev-uploader.js::validateWithKosit().
+
+   ⚠️ .spko-… / .spmv-… / .sppv-… ARE NOT THIS PLUGIN'S OWN CLASSES - they are built by SPKO_renderReport(),
+   SPMV_renderReport() and SPPV_renderReport() of the three validators and reused here rather than reinvented. Their
+   own stylesheets are deliberately never loaded on this page ( their selectors are unscoped, correct only inside their
+   own shadow root ), so the few classes that stay in the viewer are styled here.
+
+   ⚠️ THE BUTTON AREA OF THE REPORT DOES NOT STAY. spev-uploader.js moves its action buttons into the toolbar of the
+   viewer as `.btn` and removes the area; rules for `…-result-tools`, `…-tools-actions` and `…-download` would style
+   nothing here. What stays is the title bar and the frame of the report.
+
+   ⚠️ THE PREFIX FOLLOWS THE VALIDATOR. The KoSIT validator wrote spkv-… until its rename to spko-…; the rules here
+   kept the old prefix, and the report head stood unstyled without anybody noticing. */
+
+/* ⚠️ NO BORDER/BACKGROUND BOX HERE. This div holds only the message and the report result, both empty until the button
+   is clicked; a framed box with nothing in it would be noise above the invoice. */
+.spev-kosit-check { margin-top: 4px; }
+
+/* ⚠️ The title bar in the band of the invoice header ( `.doc-head` of the kit: gradient from --accent-2 to --accent ).
+   The kit has no block for the title bar of a report; reported as a gap. */
+.spko-result-head,
+.spmv-result-head,
+.sppv-result-head {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px var( --pad );
+	margin-bottom: 12px;
+	background: linear-gradient( 135deg, var( --accent-2 ), var( --accent ) );
+	border-bottom: var( --sig-w ) solid var( --accent-2 );
+	color: var( --on-accent );
+	font-size: var( --fs );
+	font-weight: 600;
+}
+
+.spko-report-frame[ hidden ],
+.spmv-report-frame[ hidden ],
+.sppv-report-frame[ hidden ] { display: none; }
+
+.spko-report-frame,
+.spmv-report-frame,
+.sppv-report-frame {
+	display: block;
+	width: 100%;
+	height: 70vh;
+	border: 0;
+}
+
+@media ( max-width: 700px ) {
+	.spko-report-frame,
+	.spmv-report-frame,
+	.sppv-report-frame { height: 60vh; }
+}
+
+/* ---------------------------------------------------------- messages of the add-ons
+   Excel export, Visualizer, Identifier Check and Inbound Check put a one-line message into the light DOM
+   ( `slot="panels"` ). The line is the kit's `.note` with its kind, or muted text without one ( messageClass() in
+   spev-uploader.js ); only its place stands here. */
+
+.spev-export-check,
+.spev-visualizer-check,
+.spev-identifier-check,
+.spiv-inbound-report { margin-top: 4px; }
+
+.spev-kosit-message,
+.spev-export-message,
+.spev-visualizer-message,
+.spev-identifier-check-message,
+.spiv-inbound-note { margin: 4px 0; }
+
+/* ---------------------------------------------------------- Visualizer group
+   The layout select and the two Visualizer buttons. */
+
+/**
+ * ⚠️ **THE SELECT AND TWO BUTTONS FORM ONE GROUP, AND THE GROUP WRAPS ONLY AS A WHOLE.** As three single
+ * children of the toolbar, with Viewer, Technical Details and Visualizer, the select and "Visualizer" still
+ * fitted into the first row while "Download as PDF" slipped into the second; measured at a window width of
+ * 1024 px. The select belongs to both buttons, because it decides the layout for both.
+ *
+ * ⚠️ **THE GROUP IS NO BOX.** It has neither border nor surface, because it should appear in the toolbar as
+ * three controls and not as a fourth.
+ *
+ * ⚠️ **THE LABEL STANDS BEFORE THE SELECT, NOT ABOVE IT** ( Ralf, 20.10.2026 ). The kit's `.field` stacks label and
+ * control; in a toolbar that made the group a line taller than the buttons, and the row above it ( "Rule browser" )
+ * stood far too high. The field keeps the kit's `.field` for the look of the label and only turns its direction;
+ * the group is centred on the buttons like every other row of the toolbar.
+ *
+ * ⚠️ **ON THE PHONE IT WRAPS INSIDE**: first the field across the full width, below it the two buttons. `flex: 1 1 auto`
+ * on the field lets it fill the row, `min-width: 0` lets the select become narrower than its longest entry.
+ */
+.spev-visualizer-group {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	max-width: 100%;
+}
+
+/* ⚠️ `.field.spev-visualizer-field`, two classes: the kit is linked after this file, and its `.field` with one class
+   would set the column direction again. */
+.field.spev-visualizer-field { flex: 1 1 auto; min-width: 0; flex-direction: row; align-items: center; gap: 8px; }
+.field.spev-visualizer-field > label { white-space: nowrap; }
+
+/**
+ * ⚠️ **`!important`, BECAUSE A THEME WINS HERE WITH AN ID.** The select stands in the light DOM, where the theme's
+ * stylesheet applies too. Enfold styles every select with rules like `#top select` and `#top .main_color select`;
+ * an id beats every class rule, the kit's `.sel` included, whatever order the stylesheets load in. Measured in a
+ * test installation with Enfold: the select got `margin-bottom: 20px` and the text colour rgb(150, 150, 150), so it
+ * stood higher than the buttons and looked disabled. Only these two properties are guarded, with the kit's tokens;
+ * everything else of the select comes from `.sel`.
+ */
+.spev-toolbar-select { margin: 0 !important; color: var( --text ) !important; }
+
+
+
+/* ====================================================================================
+   Oberflaechenteile des Web Components <einvoice-viewer> ( 05.10.2026 )
+
+   Das Element ist seit dieser Fassung die gemeinsame Oberflaeche aller drei
+   Auslieferungsformen - Stand-Alone-Datei, Einbettung in ein fremdes CMS und
+   WordPress-Plugin. Was es dafuer zusaetzlich zeigt, steht hier.
+
+   ⚠️ DIESE REGELN GEHOEREN IN DIESE DATEI UND NICHT IN DAS ELEMENT. Sie ist die eine
+   Quelle des Aussehens; der Bau der App schreibt :host daraus auf .spev-scope um
+   ( apps/shared/build-css.mjs ). Eine zweite Fassung im JavaScript liefe davon weg.
+   ==================================================================================== */
+
+/* ⚠️ **`hidden` MUST STAND HERE, OTHERWISE IT HAS NO EFFECT IN THE SHADOW ROOT.** The attribute sets
+   `display: none` only with the weakest specificity; any `display` rule of its own overrides it - and
+   `.spev-toolbar` sets `display: flex`. Measured on 05.10.2026 without this rule: the toolbar stood
+   visible with `hidden` in the markup before any document was loaded.
+
+   ⚠️ AND IT MUST GO INTO THIS FILE, not into the page. In the shadow root only what lies there applies; the
+   rule of the same wording in the `<style>` of the surrounding page does not reach it. */
+[ hidden ] { display: none !important; }
+
+/* Kopfzeile des Elements - nimmt den Sprachumschalter auf, rechtsbuendig. */
+.spev-head {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 8px;
+}
+
+/* ⚠️ **THE LANGUAGE SWITCH IS THE KIT'S `.btn-group` OF `.btn.small`**, the chosen language marked with `.on` ( since
+   19.10.2026 ). The element sets `.on` and `aria-pressed` together, so look and screen reader read one state. Until then
+   this place carried its own shape, taken from the website; it did not follow another kit. */
+
+/* Die Herkunftszeile: Dateiname, Syntax, Rechnungsnummer.
+
+   ⚠️ SIE GEHOERT AUF DIE SEITE, NICHT NUR INS PROTOKOLL. Wer drei Belege hintereinander
+   ansieht, verliert sonst den Ueberblick, welcher gerade dasteht - und ein Ausdruck ohne
+   Herkunft ist als Beleg wertlos. */
+.spev-meta {
+	/* ⚠️ `margin-block`, not the shorthand - see `.spev-toolbar`. */
+	margin-block: 0 12px;
+	/* Font and colour from the kit: the element carries `.mono` and `.faint`. */
+	font-size: var( --fs-xs );
+	word-break: break-all;
+}
+
+/* ⚠️ **`align-items: center` IS REQUIRED, OTHERWISE FLEXBOX STRETCHES EVERY CHILD TO FULL HEIGHT.** The
+   default is `stretch`, and with it the button "Reset" became 39 px high although its padding provides only
+   6 px - it looked like a primary button next to two small switches ( measured 05.10.2026 ). The same
+   default also stretched the separator and the switch wrappers.
+
+   ⚠️ THE RULE STANDS HERE AND NOT IN THE ELEMENT, because the plugin uses `.spev-toolbar` as well - there
+   with the same switches and the same buttons. */
+.spev-toolbar { align-items: center; }
+
+/* Pushes "Reset" to the right in the toolbar ( only in the group viewer, see below ). */
+.spev-toolbar-sep { flex: 1 1 auto; }
+
+/* ⚠️ **THREE ROWS, EACH ACROSS THE FULL WIDTH.** In `<einvoice-viewer>` only the switches stand at the top
+   ( `.spev-toolbar-main` ), below them the buttons of the add-ons ( `.spev-toolbar-actions` ) and last field
+   and rule browser with "Reset" ( `.spev-toolbar-tools` ). `flex-basis: 100%` forces the break between the
+   rows, even when one is short; without it the next row would stand next to it as soon as there is room.
+   ⚠️ `min-width: 0` keeps the Visualizer group ( 551 px ) wrapping within its row instead of widening the
+   toolbar. The group viewer for KSeF and FatturaPA knows none of these classes and keeps its one-row
+   toolbar. */
+.spev-toolbar-main,
+.spev-toolbar-actions,
+.spev-toolbar-tools {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	flex: 1 1 100%;
+	min-width: 0;
+}
+
+/* ⚠️ **THE BUTTONS STAND RIGHT-ALIGNED, IN THE SAME ORDER AS IN EVERY OTHER TOOL** ( Ralf, 18.10.2026 ). "Reset" stands
+   alone in the lowest row ( `.spev-toolbar-tools` ). Above it, `.spev-toolbar-actions` puts the first button on the
+   right and each further one to its left ( `row-reverse` ), and a full row continues upwards ( `wrap-reverse` ). With
+   `row-reverse` the start of the row is its right edge, so `flex-start` is right-aligned. The slots inside are
+   `display: contents` by default, so the slotted buttons are the flex items themselves. */
+.spev-toolbar-actions {
+	flex-direction: row-reverse;
+	flex-wrap: wrap-reverse;
+	justify-content: flex-start;
+	/* ⚠️ `flex-start`, NOT `flex-end`, ALTHOUGH THE BUTTONS SHALL STAND ON THE BOTTOM LINE. `wrap-reverse` swaps the cross
+	   axis, so its start is the bottom. The Visualizer field carries its label above the select and is taller than a
+	   button; aligned at the bottom, the buttons stand on the line of the select. */
+	align-items: flex-start;
+}
+
+.spev-toolbar-tools { justify-content: flex-end; }
+
+/* ⚠️ **THE SWITCHES STAY UNDER THE DROP AREA, LEFT-ALIGNED WITH IT** ( Ralf, 18.10.2026 ). Only the buttons span the
+   document area; the switches belong to the control shell above and stood floating at the far left once the toolbar
+   was widened. `margin-inline: auto` centres the row of the shell's width inside the wider toolbar. */
+.spev-toolbar-main {
+	max-width: var( --spev-shell-width );
+	margin-inline: auto;
+}
+
+/* ⚠️ **THE SWITCH "ONLY FILLED BT-X FIELDS" WORKS INDEPENDENTLY OF "ONLY FILLED FIELDS".** The rows, subgroups
+   and cards of the extension carry `spev-ext`; empty ones carry `blank` as well. This rule hides them while the
+   own switch is on, even when "Only filled fields" is off. The other way round, the kit hides them anyway
+   with `.only-filled … .blank`. */
+.spev-ext-filled .doc-field.spev-ext.blank,
+.spev-ext-filled .doc-subgroup.spev-ext.blank,
+.spev-ext-filled .doc-block.spev-ext.blank { display: none; }
+
+/* ⚠️ The spacing below the switches belongs to the toolbar, not to every label. `.spev-bt-toggle-wrap`
+   brings `margin: 4px 0 14px` - sensible for switches standing alone below the view, but a misalignment
+   in a row with buttons. */
+.spev-toolbar .spev-bt-toggle-wrap { margin: 0; }
+
+/* ⚠️ "Reset" is the same kit building block `.btn` as the buttons of the add-ons and therefore stands in
+   their rule further up ( section "action toolbar" ). A second version here would drift away from it. */
+
+/* ⚠️ **NO PRINT RULES IN THE FREE VIEWER.** A print-ready page is the product of the Visualizer add-on - five
+   print layouts plus a PDF with embedded XML. Rules here that hide the controls would make the screen view
+   look like an intended print output on paper and take exactly that argument away from the add-on. */

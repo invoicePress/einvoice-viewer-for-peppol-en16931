@@ -1,0 +1,117 @@
+/* spt-kit-a.tokens.css — nur der Token-Block von Kit A (v1.8, Token unverändert).
+   :root für normale Seiten, :host für Shadow-DOM-Komponenten.
+   Zusammen mit spt-kit.components.css ergibt sich spt-kit-a.css. */
+
+/* ============================================================
+   Tokens — Kit A  ·  SAP-nah, sachlich (Fiori Classic)
+   Für interne Werkzeuge und SAP-Umfeld
+   ============================================================ */
+:root,:host{
+  /* Schrift */
+  --font:        "72","Segoe UI",Roboto,-apple-system,BlinkMacSystemFont,sans-serif;
+  --font-title:  var(--font);
+  --mono:        "JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --fs:          14px;
+  --fs-h1:       20px;
+  --fs-h2:       17px;
+  --fs-sm:       13.5px;
+  --fs-xs:       11.5px;
+  --fs-s:        13px;      /* 1.9: vorher fest in den Bausteinen */
+  --fs-s2:       12.5px;
+  --fs-mini:     12px;
+  --lh:          1.5;
+
+  /* Maße */
+  --radius:      4px;
+  --radius-lg:   6px;
+  --ctl-h:       32px;
+  --pad:         12px;
+  --pad-lg:      18px;
+  --row-pad:     9px;
+  --top-h:       48px;
+  --nav-w:       214px;
+  --rail-w:      68px;
+  --doc-w:       1080px;
+  --drop-max:    960px;     /* Breite der Datei-Ablage, siehe .drop */
+
+  /* Flächen und Linien */
+  --bg:          #f5f6f7;
+  --surface:     #ffffff;
+  --surface-2:   #fafafa;
+  --border:      #d9d9d9;
+  --border-strong:#bcc3ca;
+  --field-border:#89919a;
+
+  /* Text */
+  --text:        #32363a;
+  --muted:       #5c6165;
+  --faint:       #6a7075;
+
+  /* Kopfzeile */
+  --top-bg:      #354a5f;
+  --top-fg:      #ffffff;
+  --top-sub:     #bac4ce;
+  --top-line:    rgba(255,255,255,.14);
+  --top-hover:   rgba(255,255,255,.14);
+  --mark-bg:     rgba(255,255,255,.18);
+  --top-accent:  #8ec5ff;   /* Akzent AUF der Kopfzeile — --accent trägt dort nicht */
+
+  /* Akzent und Signale */
+  --accent:      #0a6ed1;
+  --accent-2:    #0854a0;
+  --accent-soft: #e8f1fb;
+  --on-accent:   #ffffff;
+  --ok:          #107e3e;  --ok-soft:  #e6f3ea;
+  --warn:        #a34200;  --warn-soft:#fdf3e7;
+  --err:         #bb0000;  --err-soft: #fbeaea;
+  --info:        #0a5493;  --info-soft:#e8f1fb;
+  --mark:        #fef08a;
+  /* kräftigere Stufe derselben Rolle — für Text auf der weichen Fläche */
+  --err-strong:  #8c0000;
+  --mark-strong: #f5c518;
+  /* eigene Rolle: Streifung langer Listen, im Hellen nah an --surface-2,
+     im Dunkeln bewusst deutlicher */
+  --zebra:       #f3f5f7;
+
+  /* Charakter: was Kit A von Kit H unterscheidet */
+  --shadow:      0 1px 2px rgba(0,0,0,.08);
+  --shadow-lg:   0 2px 8px rgba(0,0,0,.12);
+  --badge-r:     var(--radius);
+  --badge-bd:    transparent;
+  --badge-tt:    none;
+  --badge-ls:    0;
+  --btn-fg:      var(--accent);
+  --btn-fw:      600;
+  --ph-ff:       var(--font);
+  --ph-tt:       none;
+  --ph-ls:       .01em;
+  --ph-fs:       13px;
+  --ph-bg:       var(--surface-2);
+  --ph-fw:       700;
+  --val-bd:      transparent;
+  --val-bg:      transparent;
+  --val-pad:     0;
+  --sig-w:       3px;       /* Breite der Signalkante, siehe .edge-* */
+  --sel-bar:     inset var(--sig-w) 0 0 var(--accent);
+  --crumb-ff:    var(--font);
+  --crumb-tt:    none;
+  --crumb-ls:    0;
+  --eyebrow-d:   none;      /* Rubrik-Zeile: nur Kit H */
+  --verdict-fg:  #ffffff;
+  --code-bg:     var(--surface-2);
+}
+
+/* ---- Dunkelmodus: <html data-theme="dark"> ---- */
+:root[data-theme="dark"],:host([data-theme="dark"]){
+  --bg:#12171c; --surface:#1b2228; --surface-2:#202830;
+  --border:#2c353d; --border-strong:#3b4650; --field-border:#3b4650;
+  --text:#e2e8ee; --muted:#93a0ad; --faint:#8a96a3;
+  --top-bg:#161c22; --top-fg:#e8edf2; --top-sub:#8b97a4; --top-line:#2b333b;
+  --top-hover:rgba(255,255,255,.10); --mark-bg:#4da3ff; --top-accent:#4da3ff;
+  --accent:#4da3ff; --accent-2:#7bbcff; --accent-soft:#16283c; --on-accent:#0c1116;
+  --ok:#4ec77f; --ok-soft:#142a1e; --warn:#e0a03c; --warn-soft:#2d2313;
+  --err:#ff6b6b; --err-soft:#33191b; --info:#4da3ff; --info-soft:#16283c;
+  --shadow:0 1px 2px rgba(0,0,0,.5); --shadow-lg:0 4px 14px rgba(0,0,0,.6);
+  --code-bg:#0e1318; --verdict-fg:#0c1116;
+  --zebra:#222b34; --err-strong:#ff9a9a; --mark-strong:#ffd76a;
+}
